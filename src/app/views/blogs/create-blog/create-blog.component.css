@@ -1,0 +1,48 @@
+.form-container {
+  margin: auto;
+  height: 100%;
+  border: 2px solid #75accf;
+}
+
+.labels-icon {
+  color: #eb6e37;
+  padding-right: 5px;
+}
+
+.form-fields {
+  border: 1px solid #376282;
+}
+
+.form-title-container {
+  width: 15%;
+  padding: 20px 15px;
+  float: left;
+}
+
+.form-fields-container {
+  width: 85%;
+  float: left;
+  padding: 15px 20px;
+}
+
+.btn-publish {
+  border: 1px solid #adc9d9;
+}
+
+.btn-save {
+  border: 1px solid #c5dfd4;
+}
+
+.btn-cancel {
+  border: 1px solid #edbebd;
+}
+
+.buttons-container {
+  padding-top: 2rem;
+}
+
+.buttons-container button.btn-rounded {
+  border-radius: 20px;
+  width: 10%;
+  margin-right: 20px;
+}

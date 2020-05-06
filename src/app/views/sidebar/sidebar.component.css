@@ -1,0 +1,87 @@
+.logo {
+  width: 100%;
+}
+
+.dashboard-blogs h6 {
+  font-weight: 500 !important;
+}
+
+.dashboard-blogs label {
+  font-weight: 700 !important;
+  font-size: 10px;
+  color: #d43299;
+}
+
+.blogs-dropdown {
+  width: 100% !important;
+  color: white;
+  background-color: #3b9bf1;
+  padding: 10px;
+  border: none;
+  margin-bottom: -10px !important;
+}
+
+.right-eco {
+  margin-left: 180px;
+}
+
+.drop-list-blog ul {
+  padding: 0px !important;
+  position: relative;
+  top: -10px;
+  background-color: #3b9bf1;
+}
+
+.drop-list-blog li {
+  list-style: none;
+  padding: 10px;
+  background-color: #3b9bf1;
+  color: white;
+  padding-left: 32px;
+  width: 90%;
+  margin: auto;
+}
+
+.filters-blog {
+  color: #3b9bf1;
+  border: none;
+  border: 1px solid #d43299;
+  border-radius: 5px;
+  padding: 10px;
+  padding: 4px 13px 4px 13px;
+  margin-top: 20px;
+}
+
+.setting-btn-age {
+  color: #3b9bf1;
+  border: none;
+  border: 1px solid #3b9bf1;
+  border-radius: 5px;
+  padding: 10px;
+  padding: 4px 13px 4px 13px;
+  margin-top: 20px;
+  display: block;
+  background-color: white;
+}
+
+.blog-dropdown-div {
+  width: 100%;
+}
+
+.blogs-dropdown:focus {
+  outline: none;
+}
+
+.drop-list-blog li,
+.drop-list-blog li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.drop-list-blog li:hover,
+.drop-list-blog li a:hover {
+  background-color: #8fc8fa;
+  cursor: pointer;
+  border-radius: 23px;
+  color: #fff !important;
+}

@@ -1,0 +1,9 @@
+.blog-select select {
+  border: 1px solid #3B9BF1;
+  color: lightgray;
+  font-size: 10px;
+  width: 20%;
+  padding: 6px;
+  margin-top: 40px;
+  display: inline;
+}

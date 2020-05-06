@@ -1,0 +1,37 @@
+<form role="form" [formGroup]="blogForm">
+  <div class="form-container">
+    <div class="form-group">
+      <div class="form-title-container">
+        <label><i class="fa fa-circle labels-icon"></i>Title</label>
+      </div>
+      <div class="form-fields-container">
+        <input type="text" class="form-control form-fields" placeholder="Type here" formControlName="title" />
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+      <div class="form-title-container">
+        <label><i class="fa fa-circle labels-icon"></i>Content</label>
+      </div>
+      <div class="form-fields-container">
+        <!-- <textarea name="" id="" cols="30" rows="10" placeholder="Add & edit"></textarea> -->
+        <app-editor [data]="editorData" (editorContent)="getContent($event)"></app-editor>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+      <div class="form-title-container">
+        <label><i class="fa fa-circle labels-icon"></i>Upload</label>
+      </div>
+      <div class="form-fields-container">
+        <input type="file" class="form-control form-fields" placeholder="Type here" (change)="onFileChanged($event)" />
+      </div>
+    </div>
+
+  </div>
+  <div class="buttons-container">
+    <button class="btn btn-rounded btn-cancel" routerLink="/blogs">Cancel</button>
+    <button class="btn btn-rounded btn-save" (click)="onSubmit()">Save</button>
+    <button class="btn btn-rounded btn-publish">Publish</button>
+  </div>
+</form>
