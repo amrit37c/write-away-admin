@@ -1,83 +1,75 @@
-  <table class="table admin-blogs-table active-blog">
-    <tbody>
-      <tr>
-        <th>Date/Time</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Media</th>
-        <th>Reads</th>
-        <th>Likes</th>
-        <th>Shares</th>
-        <th>Copied links</th>
-      </tr>
-      <tr class="">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>300</td>
-        <td>300</td>
-        <td>300</td>
-        <td>300</td>
+<h4 class="title">{{currentBlog}} Blogs</h4>
+<table class="table admin-blogs-table active-blog">
+  <tbody>
+    <tr>
+      <th>Date/Time</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Media</th>
+      <th>Reads</th>
+      <th>Likes</th>
+      <th>Shares</th>
+      <th>Copied links</th>
+      <th *ngIf="currentBlog=='Saved'">Action</th>
+    </tr>
+    <tr *ngFor="let row of data;let i=index">
+      <td> {{ row.createdAt |  date:'dd-MM-yyyy' }}</td>
+      <td> {{ row.title }} </td>
+      <td [innerHTML]="row.content"> </td>
+      <td><img src="http://localhost:3000/images/{{row.media}}" class="media-img" /></td>
+      <td>{{ row.readCount }}</td>
+      <td>{{ row.likeCount }}</td>
+      <td>{{ row.shareCount }}</td>
+      <td>{{ row.copiesCount }}</td>
+      <td *ngIf="currentBlog=='Saved'" class="table-action-cell">
+        <div class="buttons-container">
+          <button class="btn btn-rounded btn-publish" (click)="publishBlog(row._id)">Publish</button>
+          <button class="btn btn-rounded btn-save" (click)="editBlog(row._id)">Edit</button>
+          <button class="btn btn-rounded btn-cancel" (click)="delete(row._id)">Delete</button>
+        </div>
+      </td>
+    </tr>
 
-      </tr>
+  </tbody>
+</table>
+<div class="row" *ngIf="blogAll">
+  <div class="col-md-3">
+    <table class="table admin-blogs-table active-blog">
+      <tbody>
+        <tr>
+          <th>Recent Blogs</th>
+          <th>Archieved Blogs</th>
 
-
-
-
-    </tbody>
-  </table>
-  <div class="row">
-    <div class="col-md-3">
-      <table class="table admin-blogs-table active-blog">
-        <tbody>
-          <tr>
-            <th>Recent Blogs</th>
-            <th>Archieved Blogs</th>
-
-          </tr>
-          <tr>
-            <td>300</td>
-            <td>300</td>
-          </tr>
-
-
-
-
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-9"></div>
-
+        </tr>
+        <tr>
+          <td>{{recentBlogs && recentBlogs.length || 0 }}</td>
+          <td>{{archievedBlogs && archievedBlogs.length || 0}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row">
-    <div class="col-md-5">
-      <table class="table admin-blogs-table all-blogs active-blog">
-        <tbody>
-          <tr>
-            <th colspan="4" class="text-center">All Blogs (1000)</th>
+  <div class="col-md-9"></div>
+
+</div>
+<div class="row" *ngIf="blogAll">
+  <div class="col-md-8">
+    <table class="table admin-blogs-table all-blogs active-blog">
+      <tbody>
+        <tr>
+          <th colspan="4" class="text-center">All Blogs {{data.length}}</th>
 
 
-          </tr>
-          <tr>
-            <td>300</td>
-            <td>300</td>
-            <td>300</td>
-            <td>300</td>
-          </tr>
-          <tr>
-            <td>3000</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+        </tr>
+        <tr>
+          <td><span>Avg. Reads </span>{{ '0' }}</td>
+          <td><span>Avg. Likes </span>{{  '0' }}</td>
+          <td><span>Avg. Shares</span>{{'0'}}</td>
+          <td><span>Avg. Copied Links</span> {{ '0'}}</td>
+        </tr>
 
-
-
-
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-7"></div>
-
+      </tbody>
+    </table>
   </div>
+  <div class="col-md-7"></div>
+
+</div>

@@ -2,11 +2,15 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { BlogsComponent } from "./blogs.component";
-import { CreateBlogComponent } from "./create-blog/create-blog.component";
+import { FormComponent } from "./form/form.component";
 
 const routes: Routes = [
   { path: "", component: BlogsComponent },
-  { path: "create-blog", component: CreateBlogComponent },
+  { path: "create-blog", component: FormComponent },
+  { path: "saved-blog", component: BlogsComponent },
+  { path: "recent-blog", component: BlogsComponent },
+  { path: "archieved-blog", component: BlogsComponent },
+  { path: "edit-blog/:id", component: FormComponent },
 ];
 
 @NgModule({

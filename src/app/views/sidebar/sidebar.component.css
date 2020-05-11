@@ -68,8 +68,12 @@
   width: 100%;
 }
 
-.blogs-dropdown:focus {
+.blogs-dropdown:focus,
+button:focus,
+select:focus,
+select.form-control:focus {
   outline: none;
+  box-shadow: none !important;
 }
 
 .drop-list-blog li,
