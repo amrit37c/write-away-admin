@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SidebarComponent implements OnInit {
   isCollapsed: boolean = false;
+  isPubCollapsed: boolean = false;
   constructor() {}
 
   ngOnInit() {}

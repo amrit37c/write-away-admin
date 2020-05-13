@@ -53,6 +53,7 @@ export class BlogsComponent implements OnInit {
     // this.router.navigateByUrl("/edit/" + id);
     this.router.navigate(["/blogs/edit-blog/" + id]);
   }
+
   publishBlog(id) {
     this.service.put(id, { isPublished: true }).subscribe((_response) => {
       console.log("", _response);

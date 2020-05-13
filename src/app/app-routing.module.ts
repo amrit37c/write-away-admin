@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () =>
       import("./views/blogs/blogs.module").then((m) => m.BlogsModule),
   },
+  {
+    path: "publications",
+    loadChildren: () =>
+      import("./views/publication/publication.module").then(
+        (m) => m.PublicationModule
+      ),
+  },
 ];
 
 @NgModule({

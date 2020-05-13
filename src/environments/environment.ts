@@ -7,6 +7,9 @@ export const environment = {
   baseUrl: "http://localhost:3000/api/v1/",
   adminApi: {
     blog: "blog",
+    publication: "publication",
+    genre: "genre",
+    ageGroup: "age-group",
   },
 };
 

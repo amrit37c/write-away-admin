@@ -1,0 +1,225 @@
+<div class="align-admin-sec  response-form">
+  <div class="body-list">
+    <div class="auth-name">
+      Create Publications
+    </div>
+    <div class="numbers-auth none-dsp">300 </div>
+  </div>
+
+  <div class="body-list">
+    <div class="auth-name">
+      Saved Publications
+
+    </div>
+    <div class="numbers-auth">300 </div>
+  </div>
+  <div class="body-list">
+    <div class="auth-name">
+      Open Publications
+
+    </div>
+    <div class="numbers-auth">300 </div>
+  </div>
+  <div class="body-list">
+    <div class="auth-name">
+      Closed Publications
+
+    </div>
+    <div class="numbers-auth">300 </div>
+  </div>
+  <div class="body-list">
+    <div class="auth-name">
+      Rejected Publications
+
+    </div>
+    <div class="numbers-auth none-dsp">300 </div>
+  </div>
+  <div class="body-list">
+    <div class="auth-name">
+      Cover/Category Designs
+    </div>
+    <div class="numbers-auth none-dsp">300 </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-publish">
+        <form role="form" [formGroup]="publicationForm">
+          <div class=" background-light-pink">
+            <div class="row field-size">
+              <div class="col-6 ">
+                <span>Title</span>
+                <input type="text" placeholder="Title" formControlName="title">
+              </div>
+              <div class="col-6">
+                <span>Media</span>
+                <input type="file" placeholder="Upload Cover Design" (change)="onFileChanged($event, 'mediaCover')">
+              </div>
+
+              <div class="col-md-10">
+
+                <span>Brief:</span>
+                <textarea placeholder="Type here" formControlName="brief"></textarea>
+
+              </div>
+              <div class="col-md-2"></div>
+
+            </div>
+
+
+          </div>
+
+          <div class="row field-size">
+            <div class="col-5 ">
+              <span>Genre(s):</span>
+              <!-- <select formControlName="genres" class="form-control">
+                <option value="Male">Yes</option>
+                <option value="Female">No</option>
+
+              </select> -->
+              <select class="form-control" formControlName="genres">
+                <option selected value="">Select Genre</option>
+                <option *ngFor="let type of genres" value="{{type.value}}">{{type.name}}
+                </option>
+              </select>
+
+            </div>
+            <div class="col-5">
+              <span>Description</span>
+              <input type="text" placeholder="Genre Description" formControlName="genreDescription">
+
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+
+              <span>Closing Date:</span>
+              <input type="date" formControlName="closingDate">
+              <span>Age Group(s):</span>
+              <!-- <input type="date" formControlName="ageGroup"> -->
+              <select class="form-control" formControlName="ageGroup">
+                <option selected value="">Select Age Group</option>
+                <option *ngFor="let type of ageGroups" value="{{type.value}}">{{type.name[0]}}-{{type.name[1]}}
+                </option>
+              </select>
+            </div>
+            <div class="col-5">
+
+
+            </div>
+            <div class="col-md-2"></div>
+
+            <div class="col-md-5">
+
+              <!-- <span>Brief:</span> -->
+              <textarea class="kick-start" placeholder="Enter Kick Starter" formControlName="kickstarter"></textarea>
+
+            </div>
+            <div class="col-md-5">
+              <!-- <span>Brief:</span> -->
+              <textarea class="kick-start" placeholder="Enter Your 'How-To Book'"
+                formControlName="kickbookDesc"></textarea>
+            </div>
+            <div class="col-md-2"></div>
+
+            <div class="col-5">
+              <span>Publication Rights:</span>
+              <select formControlName="publicationRights" class="form-control">
+                <option selected value="">Select Publication Rights</option>
+                <option *ngFor="let type of publicationRights" value="{{type.value}}">{{type.name}}</option>
+              </select>
+
+            </div>
+            <div class="col-md-7">
+
+            </div>
+
+            <div class="col-5">
+              <div class="col-md-6">
+                <span>Word Count(min)</span>
+                <input type="number" formControlName="wordCountMin">
+              </div>
+              <div class="col-md-6">
+
+                <span>Word Count(max)</span>
+                <input type="number" formControlName="wordCountMax">
+              </div>
+            </div>
+            <div class="col-md-7">
+
+            </div>
+            <div class="col-5">
+              <span>Set Commercials:</span>
+              <select formControlName="commercials" class="form-control">
+                <option selected value="">Select Commercial</option>
+                <option *ngFor="let type of commercials" value="{{type.value}}">{{type.name}}</option>
+
+              </select>
+
+            </div>
+            <div class="col-md-7">
+
+            </div>
+
+            <div class="col-5">
+              <span>Languages:</span>
+              <select formControlName="language" class="form-control">
+                <option selected value="">Select Language</option>
+                <option *ngFor="let type of languages" value="{{type.name}}">{{type.name}}</option>
+              </select>
+              <span>Categories:</span>
+              <select formControlName="category" class="form-control">
+                <option selected value="">Select Category</option>
+                <option *ngFor="let type of categories" value="{{type.value}}">{{type.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-7">
+
+            </div>
+
+            <div class="col-5">
+              <span>Category Media</span>
+              <div *ngIf="publicationForm.value.category == '1'">
+                <input type="text" formControlName="categoryContent">
+              </div>
+
+              <div *ngIf="publicationForm.value.category != '1' && publicationForm.value.category != ''">
+                <input type="file" (change)="onFileChanged($event, 'categoryContent')">
+              </div>
+            </div>
+            <div class="col-md-7">
+
+            </div>
+
+            <!-- <div class="col-5 btns-form">
+              <button class="cancel-btns">Cancel</button>
+              <button type="button">SAVE</button>
+              <button class="open-site">Open on Site</button>
+
+            </div> -->
+            <div class="col-5 btns-form">
+              <button class="btn btn-rounded btn-cancel cancel-btns" routerLink="/publications">Cancel</button>
+              <button class="btn btn-rounded btn-save" [disabled]="publicationForm.invalid"
+                (click)="onSubmit()">{{editAble ? 'Update': 'Save'}}</button>
+              <button class="btn btn-rounded btn-publish" [disabled]="publicationForm.invalid"
+                (click)="onSubmit('open')">Open
+                on site</button>
+            </div>
+            <div class="col-md-7">
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+</div>

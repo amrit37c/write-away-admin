@@ -13,6 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./views/header/header.component";
 import { SidebarComponent } from "./views/sidebar/sidebar.component";
+import { PublicationModule } from './views/publication/publication.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SidebarComponent],
@@ -22,6 +23,7 @@ import { SidebarComponent } from "./views/sidebar/sidebar.component";
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     HttpClientModule,
+    PublicationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

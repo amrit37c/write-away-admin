@@ -7,9 +7,9 @@
 </div>
 <p>
   <button type="button" class="blogs-dropdown" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-    aria-controls="collapseBasic">Blogs
+    aria-controls="collapseBasic"><span routerLink="/blogs">Blogs</span>
     <i aria-hidden="true" class="fa right-eco"
-      [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="he"></i>
+      [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="fa-blog"></i>
   </button>
 </p>
 <div id="collapseBasic" [collapse]="!isCollapsed" class="drop-list-blog">
@@ -18,6 +18,22 @@
     <li><a routerLink="/blogs/saved-blog">Saved Blogs</a></li>
     <li><a routerLink="/blogs/recent-blog">Recent Blogs</a></li>
     <li><a routerLink="/blogs/archieved-blog">Archieved Blogs</a></li>
+  </ul>
+</div>
+<p>
+  <button type="button" class="blogs-dropdown" (click)="isPubCollapsed = !isPubCollapsed"
+    [attr.aria-expanded]="!isPubCollapsed" aria-controls="collapsePubBasic"><span
+      routerLink="/publications">Publication</span>
+    <i aria-hidden="true" class="fa right-eco"
+      [ngClass]="{'fa-chevron-right': isPubCollapsed, ' fa-chevron-down':!isPubCollapsed}" id="fa-publication"></i>
+  </button>
+</p>
+<div id="collapsePubBasic" [collapse]="!isPubCollapsed" class="drop-list-blog">
+  <ul>
+    <li><a routerLink="/publications/create-publication">Create Publication</a></li>
+    <li><a routerLink="/publications/open-publication">Open Publication</a></li>
+    <li><a routerLink="/publications/closed-publication">Closed Publication</a></li>
+    <li><a routerLink="/publications/rejected-publication">Rejected Publication</a></li>
   </ul>
 </div>
 <div class="text-center">
