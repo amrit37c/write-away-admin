@@ -10,9 +10,10 @@ import { PublicationRoutingModule } from "./publication-routing.module";
 // Component
 import { PublicationComponent } from "./list/publication.component";
 import { FormComponent } from "./form/form.component";
+import { PublicationHeaderComponent } from './publication-header/publication-header.component';
 
 @NgModule({
-  declarations: [PublicationComponent, FormComponent],
+  declarations: [PublicationComponent, FormComponent, PublicationHeaderComponent],
   imports: [
     CommonModule,
     PublicationRoutingModule,

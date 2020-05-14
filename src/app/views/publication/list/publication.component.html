@@ -212,7 +212,7 @@
   <div class="col-md-10">
     <div class="body-list">
       <div class="auth-name">
-        Create Publications
+        <span (click)="navigate('create-publication')">Create Publications</span>
       </div>
       <div class="numbers-auth none-dsp">300 </div>
     </div>
@@ -264,11 +264,11 @@
       </div>
       <div class="body-list">
 
-        <div class="numbers-auth"><span class="col-black">Patron Members</span> 300 </div>
+        <div class="numbers-auth"><span class="col-black">Patron Members</span> {{patronMember}} </div>
       </div>
       <div class="body-list">
 
-        <div class="numbers-auth"><span class="col-black">VIP Member</span> 300 </div>
+        <div class="numbers-auth"><span class="col-black">VIP Member</span> {{vipMember}} </div>
       </div>
 
 

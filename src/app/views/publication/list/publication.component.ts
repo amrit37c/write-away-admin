@@ -15,12 +15,16 @@ export class PublicationComponent implements OnInit {
   activePublications: Array<any> = [];
   recentPublications: Array<any> = [];
   archivedPublications: Array<any> = [];
+  savedPublications: Array<any> = [];
   publicationRights = [
     "",
     "Open for all",
     "Open for self",
     "Open for invitees only",
   ]; //// 1 - open for all, 2 - open for self, 3 - open for invitees only
+
+  patronMember: number = 0;
+  vipMember: number = 0;
 
   constructor(private service: PublicationService, private router: Router) {}
 
@@ -30,22 +34,19 @@ export class PublicationComponent implements OnInit {
     let type;
     // type - 1 = saved, 2 = recent, 3 = archieved
     if (route === "publications") {
-      console.log("if");
       this.publicationAll = true;
       this.currentPublication = "Active";
     } else if (route === "open-publication") {
       type = 1;
-      console.log("else if 1");
+
       this.publicationAll = false;
       this.currentPublication = "Open";
     } else if (route === "closed-publication") {
       this.publicationAll = false;
       this.currentPublication = "Closed";
-      console.log("else if 2");
     } else {
       this.publicationAll = false;
       this.currentPublication = "Rejected";
-      console.log("else if 3");
     }
     console.log("this", this.publicationAll);
 
@@ -55,6 +56,9 @@ export class PublicationComponent implements OnInit {
   getBlogs(type?) {
     this.service.get(type).subscribe((_response) => {
       this.data = _response.body.data;
+      this.savedPublications = this.data.filter((el) => {
+        console.log("el", el);
+      });
     });
   }
 
@@ -74,5 +78,9 @@ export class PublicationComponent implements OnInit {
     // this.service.put().subscribe(_response=>{
     //   console.log('response', _response);
     // })
+  }
+
+  navigate(url) {
+    this.router.navigateByUrl("/publications/" + url);
   }
 }
