@@ -56,9 +56,7 @@ export class PublicationComponent implements OnInit {
   getBlogs(type?) {
     this.service.get(type).subscribe((_response) => {
       this.data = _response.body.data;
-      this.savedPublications = this.data.filter((el) => {
-        console.log("el", el);
-      });
+      this.savedPublications = this.data.filter((el) => el.isPublished == true);
     });
   }
 
