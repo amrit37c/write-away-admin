@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:3000/api/v1/",
+  baseUrl: "http://demo.writeawayy.com:3000/api/v1/",
   adminApi: {
     blog: "blog",
     publication: "publication",
@@ -13,6 +13,7 @@ export const environment = {
   },
 };
 
+// baseUrl: "http://demo.writeawayy.com:3000/api/v1/",
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

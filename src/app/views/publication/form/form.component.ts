@@ -94,22 +94,22 @@ export class FormComponent implements OnInit {
     this.getGenres(); // get genres
 
     this.publicationForm = this.formBuilder.group({
-      title: ["", Validators.required],
-      brief: ["", Validators.required],
-      genres: ["", Validators.required],
-      genreDescription: ["", Validators.required],
-      closingDate: ["", Validators.required],
-      ageGroup: ["", Validators.required],
-      kickstarter: ["", Validators.required],
-      kickbookDesc: ["", Validators.required],
-      mediaCover: ["", Validators.required],
-      wordCountMin: ["", Validators.required],
-      wordCountMax: ["", Validators.required],
-      publicationRights: ["", Validators.required],
-      commercials: ["", Validators.required],
-      language: ["", Validators.required],
-      category: ["", Validators.required],
-      categoryContent: ["", Validators.required],
+      title: [""],
+      brief: [""],
+      genres: [""],
+      genreDescription: [""],
+      closingDate: [""],
+      ageGroup: [""],
+      kickstarter: [""],
+      kickbookDesc: [""],
+      mediaCover: [""],
+      wordCountMin: [""],
+      wordCountMax: [""],
+      publicationRights: [""],
+      commercials: [""],
+      language: [""],
+      category: [""],
+      categoryContent: [""],
     });
   }
 
