@@ -5,7 +5,11 @@
         <label><i class="fa fa-circle labels-icon"></i>Title</label>
       </div>
       <div class="form-fields-container">
-        <input type="text" class="form-control form-fields" placeholder="Type here" formControlName="title" />
+        <input type="text" class="form-control form-fields" placeholder="Type here" formControlName="title"
+          [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+          <div *ngIf="f.title.errors.required">Title is required</div>
+        </div>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -14,8 +18,10 @@
         <label><i class="fa fa-circle labels-icon"></i>Content</label>
       </div>
       <div class="form-fields-container">
-        <!-- <textarea name="" id="" cols="30" rows="10" placeholder="Add & edit"></textarea> -->
         <app-editor [data]="editorData" (editorContent)="getContent($event)"></app-editor>
+      </div>
+      <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+        <div *ngIf="f.content.errors.required">Content is required</div>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -24,13 +30,20 @@
         <label><i class="fa fa-circle labels-icon"></i>Upload</label>
       </div>
       <div class="form-fields-container">
-        <input type="file" *ngIf="!blogImage  && !updateImage" class="form-control form-fields" placeholder="Type here"
-          (change)="onFileChanged($event)" />
+        <label class="form-control form-fields file-label" (click)="enableUpload()">
+          {{uploadFileName}}
+          <!-- <span class="fa fa-files"></span> -->
+          <img src="/assets/images/file-img.jpg" class="file-icon" />
+        </label>
+        <input type="file" class="form-control form-fields d-none"
+          [ngClass]="{ 'is-invalid': submitted && f.media.errors }" (change)="onFileChanged($event)" id="upload" />
 
-        <img src="http://localhost:3000/images/{{blogImage}}" *ngIf="editAble && updateImage && blogImage !=''"
-          alt="Blog image not found" />
-        <button class="btn btn-rounded btn-cancel" *ngIf="editAble && blogImage !='' "
-          (click)="removeImage()">Remove</button>
+        <img src="http://localhost:3000/images/{{blogImage}}" *ngIf="editAble && updateImage" alt="" />
+        <!-- <button class="btn btn-rounded btn-cancel" *ngIf="editAble && blogImage !='' "
+          (click)="removeImage()">Remove</button> -->
+        <div *ngIf="submitted && f.media.errors" class="invalid-feedback">
+          <div *ngIf="f.media.errors.required">Image is required</div>
+        </div>
       </div>
     </div>
 
@@ -38,8 +51,7 @@
   </div>
   <div class="buttons-container">
     <button class="btn btn-rounded btn-cancel" routerLink="/blogs">Cancel</button>
-    <button class="btn btn-rounded btn-save" [disabled]="blogForm.invalid"
-      (click)="onSubmit()">{{editAble ? 'Update': 'Save'}}</button>
-    <button class="btn btn-rounded btn-publish" [disabled]="blogForm.invalid" (click)="onSubmit(1)">Publish</button>
+    <button class="btn btn-rounded btn-save" (click)="onSubmit()">{{editAble ? 'Update': 'Save'}}</button>
+    <button class="btn btn-rounded btn-publish" (click)="onSubmit(1)">Publish</button>
   </div>
 </form>

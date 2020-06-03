@@ -10,11 +10,13 @@ import { Router, ActivationEnd, ActivatedRoute } from "@angular/router";
 })
 export class FormComponent implements OnInit {
   blogForm: FormGroup;
-  editorData = "<p></p>";
+  editorData = "<p> </p>";
   editAble: boolean = false;
   updateImage: boolean = false;
   blogImage;
   id;
+  uploadFileName: string = "";
+  submitted = false;
   constructor(
     private formBuilder: FormBuilder,
     private service: BlogService,
@@ -45,11 +47,17 @@ export class FormComponent implements OnInit {
     console.log(this.activateRouter.snapshot.paramMap.get("id"));
   }
 
+  get f() {
+    return this.blogForm.controls;
+  }
+
   getContent(event) {
     this.editorData = event;
   }
 
   onSubmit(flag: boolean) {
+    console.log("called");
+    this.submitted = true;
     if (this.blogForm.invalid) {
       return;
     }
@@ -73,6 +81,7 @@ export class FormComponent implements OnInit {
       // insert operation
       this.service.post(form).subscribe((_response) => {
         alert(_response.body.message);
+        this.uploadFileName = "";
         this.router.navigateByUrl("/blogs");
       });
     }
@@ -81,16 +90,16 @@ export class FormComponent implements OnInit {
   getDetails(id) {
     this.service.getOne(id).subscribe((_response) => {
       console.log("data", _response.body.data);
-      // this.data = _response.body.data;
-      this.blogForm.patchValue(_response.body.data[0]);
-      this.editorData = _response.body.data[0].content;
-      this.blogImage = _response.body.data[0].media;
+
+      this.blogForm.patchValue(_response.body.data);
+      this.editorData = _response.body.data.content;
+      this.blogImage = _response.body.data.media;
       this.updateImage = true;
     });
   }
 
   onFileChanged(event) {
-    console.log("eve>", event);
+    this.uploadFileName = event.target.files[0].name;
     this.blogImage = event.target.files[0];
     this.blogForm.patchValue({
       media: event.target.files[0],
@@ -100,5 +109,11 @@ export class FormComponent implements OnInit {
   removeImage() {
     this.blogImage = "";
     this.updateImage = false;
+  }
+
+  enableUpload() {
+    let element: HTMLElement = document.getElementById("upload") as HTMLElement;
+    element.click();
+    return;
   }
 }

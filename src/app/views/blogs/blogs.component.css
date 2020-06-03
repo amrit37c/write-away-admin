@@ -61,7 +61,7 @@ tr td.table-action-cell {
 
 .buttons-container button.btn-rounded {
   border-radius: 20px;
-  width: 27%;
+  width: 100%;
   margin-right: 20px;
 }
 

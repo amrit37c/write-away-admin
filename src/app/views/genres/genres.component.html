@@ -1,0 +1,86 @@
+<div class="align-admin-sec  response-form">
+  <div class="col-md-6">
+    <button class="btn add-genre text-white mb-3" (click)="enableAddGenre()">
+      <span class="fa fa-plus"></span>
+      Add
+    </button>
+  </div>
+
+  <div class="col-md-6 text-right" *ngIf="isAddGenre">
+    <input type="text" [(ngModel)]="title" class="form-control" />
+    <button class="btn-primary text-white" (click)="addGenre()">Add</button>
+  </div>
+  <!-- <div class="col-md-6" *ngIf="isAddGenre">
+    
+  </div> -->
+
+  <div class="">
+    <table class="table table-bordered publishing-table table-responsive ">
+      <tbody>
+        <tr>
+          <th>S.No.</th>
+          <th>Genres</th>
+          <th>Actions</th>
+          <th>Topic Media's</th>
+          <th>Logged By:</th>
+        </tr>
+        <tr *ngFor="let row of data;let i=index">
+
+          <td>{{i+1}}</td>
+          <td>{{row.title}}</td>
+          <td>
+            <button class="btn-save btn-rounded" (click)="openModal(template, row)">Edit</button>
+            <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
+          </td>
+          <td>
+            <!-- <img *ngFor="let img of row.topicMedia" class="img-responsive img-thumbnail"
+              src="http://localhost:3000/images/{{img}}" style="height: 200px;width: 200px;" /> -->
+            <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
+
+            <!-- <div>
+              <input type="file" (change)="onFileChanged($event, row._id)">
+            </div> -->
+          </td>
+          <td>{{row.brief}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Topic Media</h4>
+    <button class="close closepop-btn" type="button" (click)="decline();">
+      <span>×</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+
+    <button class="btn btn-primary" (click)="enableAddImage()">Add </button>
+    <div *ngIf="isAddImage">
+      <input type="file" (change)="onFileChanged($event, topicMedia._id)" />
+    </div>
+    <table class="table-responsive">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Media</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let media of topicMedia.topicMedia;let i=index">
+          <td>{{i+1}}</td>
+          <td><img src="http://localhost:3000/images/{{media}}" class="genre-img" /></td>
+          <td>
+            <button class="btn-danger" (click)="deleteOneImg(topicMedia._id, media)" delete>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

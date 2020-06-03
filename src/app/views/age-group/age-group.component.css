@@ -1,0 +1,27 @@
+.genre-img {
+  height: 200px;
+  width: 200px;
+}
+
+.btn-rounded {
+  border-radius: 20px;
+  width: 39%;
+  background-color: #fff;
+  padding: 7px;
+}
+
+.btn-save {
+  border: 1px solid #c5dfd4;
+}
+
+.btn-delete {
+  border: 1px solid #823a3e;
+}
+
+button.btn-save.btn-rounded:first-child {
+  margin: 0 15px;
+}
+
+th:nth-child(3) {
+  width: 47%;
+}

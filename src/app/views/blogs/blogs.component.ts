@@ -17,7 +17,7 @@ export class BlogsComponent implements OnInit {
   archivedBlogs: Array<any> = [];
 
   constructor(private service: BlogService, private router: Router) {
-    console.log("ex", this.router.url);
+    // console.log("ex", this.router.url);
   }
 
   ngOnInit() {
@@ -41,6 +41,7 @@ export class BlogsComponent implements OnInit {
     }
 
     this.getBlogs(route); // fetch all blogs
+    this.getRecentBlog(); // fetch recent blogs
   }
 
   getBlogs(type?) {
@@ -58,6 +59,12 @@ export class BlogsComponent implements OnInit {
     this.service.put(id, { isPublished: true }).subscribe((_response) => {
       console.log("", _response);
       this.getBlogs("saved-blog");
+    });
+  }
+
+  getRecentBlog() {
+    this.service.get({ isPublished: "today" }).subscribe((_response) => {
+      this.recentBlogs = _response.body.data;
     });
   }
 }

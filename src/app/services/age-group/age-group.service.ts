@@ -10,11 +10,29 @@ import { map, catchError } from "rxjs/operators";
   providedIn: "root",
 })
 export class AgeGroupService extends BaseService {
+  url = `${environment.baseUrl}${environment.adminApi.ageGroup}`;
   constructor(public http: HttpClient, public router: Router) {
     super(
       `${environment.baseUrl}${environment.adminApi.ageGroup}`,
       http,
       router
     );
+  }
+  /*** put on the server **/
+  removeImg(id, payload): Observable<any> {
+    return this.http
+      .put<any>(`${this.url}/${id}/genre-img-update`, payload, {
+        // headers: this.token(),
+        responseType: "json",
+        observe: "response",
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        }),
+        catchError((error: any) => {
+          return this.handleError(error);
+        })
+      );
   }
 }

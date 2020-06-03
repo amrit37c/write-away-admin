@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
-  { path: "", redirectTo: "blogs", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   {
     path: "blogs",
     loadChildren: () =>
@@ -14,6 +14,23 @@ const routes: Routes = [
       import("./views/publication/publication.module").then(
         (m) => m.PublicationModule
       ),
+  },
+  {
+    path: "genres",
+    loadChildren: () =>
+      import("./views/genres/genres.module").then((m) => m.GenresModule),
+  },
+  {
+    path: "age-groups",
+    loadChildren: () =>
+      import("./views/age-group/age-group.module").then(
+        (m) => m.AgeGroupModule
+      ),
+  },
+  {
+    path: "home",
+    loadChildren: () =>
+      import("./views/home/home.module").then((m) => m.HomeModule),
   },
 ];
 

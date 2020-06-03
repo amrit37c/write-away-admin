@@ -1,7 +1,7 @@
-<div class="logo">
+<!--<div class="logo">
   <img src="/assets/images/logo.svg" class="logo" />
 </div>
-<div class="text-center dashboard-blogs">
+ <div class="text-center dashboard-blogs">
   <h6>DASHBOARD</h6>
   <label>Welcome {{ 'Admin' }}</label>
 </div>
@@ -20,14 +20,14 @@
     <li><a routerLink="/blogs/archieved-blog">Archieved Blogs</a></li>
   </ul>
 </div>
-<p>
-  <button type="button" class="blogs-dropdown" (click)="isPubCollapsed = !isPubCollapsed"
+<span>
+  <span type="button" class="blogs-dropdown" (click)="isPubCollapsed = !isPubCollapsed"
     [attr.aria-expanded]="!isPubCollapsed" aria-controls="collapsePubBasic"><span
       routerLink="/publications">Publication</span>
     <i aria-hidden="true" class="fa right-eco"
       [ngClass]="{'fa-chevron-right': isPubCollapsed, ' fa-chevron-down':!isPubCollapsed}" id="fa-publication"></i>
-  </button>
-</p>
+  </span>
+</span>
 <div id="collapsePubBasic" [collapse]="!isPubCollapsed" class="drop-list-blog">
   <ul>
     <li><a routerLink="/publications/create-publication">Create Publication</a></li>
@@ -36,8 +36,175 @@
     <li><a routerLink="/publications/rejected-publication">Rejected Publication</a></li>
   </ul>
 </div>
+
+<p>
+  <button type="button" class="blogs-dropdown" (click)="isGenre = !isGenre" [attr.aria-expanded]="!isGenre"
+    aria-controls="collapsePubBasic"><span routerLink="/genres">Genres</span>
+    <i aria-hidden="true" class="fa right-eco" [ngClass]="{'fa-chevron-right': isGenre, ' fa-chevron-down':!isGenre}"
+      id="fa-publication"></i>
+  </button>
+</p>
+<div id="collapsePubBasic" [collapse]="!isGenre" class="drop-list-blog">
+  <ul>
+    <li><a routerLink="/publications/create-publication">Create Genre</a></li>
+    <li><a routerLink="/publications/open-publication">Open Genre</a></li>
+  </ul>
+</div>
 <div class="text-center">
   <button class="filters-blog">Filters</button>
 </div>
 <button class="setting-btn-age">Age Group Settings</button>
-<button class="setting-btn-age">Genre Settings</button>
+<button class="setting-btn-age">Genre Settings</button> -->
+
+
+<div class="control-side-bar pad-zero">
+  <div class="logo">
+    <!-- <img src="assets/images/logo.png" class="logo"> -->
+    <img src="/assets/images/logo.svg" class="logo" routerLink="/home" />
+  </div>
+  <div class="center dashboard-blogs">
+    <span class="dashboard-q">DASHBOARD</span>
+    <label>Welcome {{'Admin'}}</label>
+  </div>
+  <div class="side-bar-options">
+    <div class="side-bar-top-4">
+      <div class="side-bar-top-item">
+        <img src="./assets/images/logs.svg" alt="">
+        <!-- <span>Blogs</span>
+        <span class="side-arrow">▸</span> -->
+        <span (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"
+          routerLink="/blogs" class="menu-title">Blogs</span>
+        <!-- <span class="fa side-arrow" aria-hidden="true"
+          [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="fa-blog"
+          (click)="isCollapsed = !isCollapsed"></span> -->
+        <span class="side-arrow" aria-hidden="true" [ngClass]="{'rotate': isCollapsed, '':!isCollapsed}" id="fa-blog"
+          (click)="isCollapsed = !isCollapsed">▸</span>
+        <!-- <span>
+          <span type="button" class="blogs-dropdown" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"><span routerLink="/blogs">Blogs</span>
+            <i aria-hidden="true" class="fa right-eco"
+              [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="fa-blog"></i>
+          </span>
+        </span> -->
+        <div id="collapseBasic" [collapse]="!isCollapsed" class="drop-list-blog">
+          <ul class="dropdown-ul">
+            <li><a routerLink="/blogs/create-blog">Create Blog</a></li>
+            <li><a routerLink="/blogs/saved-blog">Saved Blogs</a></li>
+            <li><a routerLink="/blogs/recent-blog">Recent Blogs</a></li>
+            <li><a routerLink="/blogs/archieved-blog">Archieved Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-bar-top-item">
+        <img src="./assets/images/publishing.svg" alt="">
+        <span class="blogs-dropdown" (click)="isPubCollapsed = !isPubCollapsed" [attr.aria-expanded]="!isPubCollapsed"
+          aria-controls="collapsePubBasic" routerLink="/publications">We're Publishing</span>
+
+        <!-- <span class="fa side-arrow" aria-hidden="true" class="fa right-eco"
+          [ngClass]="{'fa-chevron-right': isPubCollapsed, ' fa-chevron-down':!isPubCollapsed}" id="fa-publication"
+          (click)="isPubCollapsed = !isPubCollapsed"></span> -->
+
+        <span class="side-arrow" aria-hidden="true" [ngClass]="{'rotate': isPubCollapsed, '':!isPubCollapsed}"
+          id="fa-blog" (click)="isPubCollapsed = !isPubCollapsed">▸</span>
+        <!-- <span>
+          <span class="blogs-dropdown" (click)="isPubCollapsed = !isPubCollapsed" [attr.aria-expanded]="!isPubCollapsed"
+            aria-controls="collapsePubBasic"><span routerLink="/publications">We're Publishing!</span>
+            <i aria-hidden="true" class="fa right-eco"
+              [ngClass]="{'fa-chevron-right': isPubCollapsed, ' fa-chevron-down':!isPubCollapsed}"
+              id="fa-publication"></i>
+          </span>
+        </span> -->
+        <div id="collapsePubBasic" [collapse]="!isPubCollapsed" class="drop-list-blog">
+          <ul class="dropdown-ul">
+            <li><a routerLink="/publications/create-publication">Create Publication</a></li>
+            <li><a routerLink="/publications/open-publication">Open Publication</a></li>
+            <li><a routerLink="/publications/closed-publication">Closed Publication</a></li>
+            <li><a routerLink="/publications/rejected-publication">Rejected Publication</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-bar-top-item">
+        <img src="./assets/images/read-away.svg" alt="">
+        <span>Read Awayy</span>
+        <span class="side-arrow">▸</span>
+      </div>
+
+    </div>
+    <div class="side-bar-item">
+      <span>Featured</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Trending</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Recommended</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Online Customers</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Patron Members</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>VIP Members</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Social Media</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Reviews</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Testominal</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Website</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Age-group Settings</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Genre Settings</span>
+      <span class="side-arrow">▸</span>
+    </div>
+
+    <div class="side-bar-item">
+      <span class="blogs-dropdown" routerLink="/genres">Genres
+      </span>
+      <span class="side-arrow">▸</span>
+
+    </div>
+    <div class="side-bar-item">
+      <span class="blogs-dropdown" routerLink="/age-groups">Age-Groups</span>
+      <span class="side-arrow">▸</span>
+
+    </div>
+    <div class="side-bar-item">
+      <span>Language Settings</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Reports</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Leads Management</span>
+      <span class="side-arrow">▸</span>
+    </div>
+    <div class="side-bar-item">
+      <span>Emails</span>
+      <span class="side-arrow">▸</span>
+    </div>
+
+  </div>

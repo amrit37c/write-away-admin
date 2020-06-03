@@ -1,12 +1,17 @@
 .form-container {
-  margin: auto;
+  /* 
   height: 50vh;
   border: 2px solid #75accf;
+  width: 80%; */
+  border: 3px solid #75accf;
+  width: 80%;
+  height: 545px;
 }
 
 .labels-icon {
   color: #eb6e37;
   padding-right: 5px;
+  font-size: 10px;
 }
 
 .form-fields {
@@ -49,3 +54,13 @@
 }
 
 /* Saved-cancel-publish buttons */
+.file-icon {
+  height: 28px;
+  float: right;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
