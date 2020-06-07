@@ -1,8 +1,8 @@
 <div class="align-admin-sec  response-form">
-  <div>
-    <button class="btn btn-primary" (click)="enableAddGenre()">Add </button>
+  <!-- <div>
+    <button class="btn btn-primary" (click)="enableAddAg()">Add </button>
   </div>
-  <div class="row" *ngIf="isAddGenre">
+  <div class="row" *ngIf="isAddAge">
     <div class="col-md-6 text-right">
       <input type="text" [(ngModel)]="from" placeholder="from" class="form-control" />
       <input type="text" [(ngModel)]="to" placeholder="to" class="form-control" />
@@ -38,12 +38,71 @@
         </tr>
       </tbody>
     </table>
+  </div> -->
+
+
+  <div class="age-group-main-content">
+
+    <div class="add-new-cont add-new-cont pb-2">
+
+      <button (click)="enableAddAge()" class="age-group-add-btn">
+        + Add
+      </button>
+
+      <div class="from-to-age-pop-up" id="from-to-age-pop-up" *ngIf="isAddAge">
+        <div class="age-from-to">
+          <span>from:</span>
+          <input type="text" [(ngModel)]="from" placeholder="from" class="form-control age-fields" />
+
+          <span class="to-sapn">To:</span>
+          <input type="text" [(ngModel)]="to" placeholder="to" class="form-control age-fields" />
+        </div>
+
+        <button class="popup-add-btn"
+          (click)="editable ? updateAge() : addAge()">{{editable ? 'Update' : 'Add'}}</button>
+      </div>
+    </div>
+
+    <div class="age-group-table-cont">
+
+      <table>
+        <thead>
+          <tr>
+            <th class="s-no-th">S.No.</th>
+            <th class="age-groups-th">Age-Groups</th>
+            <th class="actions-th">Actions</th>
+            <th class="logged-bt-th">Logged by:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data;let i=index;let odd=odd;let even=even"
+            [ngClass]="{'back-lit-blue': odd, '':even}">
+
+            <td>{{i+1}}</td>
+            <td>{{row.ageRange.join('-')}}</td>
+            <td>
+              <button class="age-grp-edit-btn" (click)="editAge(row)">Edit</button>
+              <button class="age-grp-delete-btn" (click)="deleteAge(row._id)">Delete</button>
+
+            </td>
+            <td>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
+  <!-- <div class="age-grp-select-cont">
+    <button>Age Group Settings</button>
+  </div> -->
 
 </div>
 
 
-<ng-template #template>
+<!-- <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Topic Media</h4>
     <button class="close closepop-btn" type="button" (click)="decline();">
@@ -54,4 +113,4 @@
   <div class="modal-body">
 
   </div>
-</ng-template>
+</ng-template> -->

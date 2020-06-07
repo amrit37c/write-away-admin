@@ -64,3 +64,149 @@
   padding: 6px 12px;
   cursor: pointer;
 }
+
+/* form css-c */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mar-zero {
+  margin: 0 !important;
+}
+
+.pad-zero {
+  padding: 0 !important;
+}
+
+.select-cont {
+  text-align: right;
+  padding-right: 65px;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.select-cont select {
+  border: 1px solid #3B9BF1;
+  color: lightgray;
+  font-size: 10px;
+  height: 37px;
+  padding: 6px;
+  width: 155px;
+  border-radius: 3px;
+}
+
+.dashboard-blogs h6 {
+  font-weight: 500 !important;
+}
+
+.dashboard-blogs label {
+  font-weight: 700 !important;
+  font-size: 10px;
+  color: #D43299;
+}
+
+.logo img {
+  width: 85%;
+}
+
+.create-blg-main-cont {
+  width: 80%;
+}
+
+.main-create-blg {
+  border: 3px solid #1E70AE;
+  padding: 25px 20px 10px 35px;
+}
+
+.main-create-blg label {
+  font-size: 16px;
+  color: #7F7F7F;
+  font-weight: 500;
+  letter-spacing: .5px;
+  width: 12%;
+  /* -webkit-box-shadow: 1px 8px 22px -11px rgba(0,0,0,0.55); 
+box-shadow: 1px 8px 22px -11px rgba(0,0,0,0.55); */
+  vertical-align: top;
+}
+
+.main-create-blg label::before {
+  content: "\f111";
+  color: #EC6F12;
+  font: normal normal normal 8px/1 FontAwesome;
+  position: relative;
+  top: -2px;
+  margin-right: 5px;
+}
+
+.main-create-blg input,
+.upload-cont {
+  width: 88%;
+  border: 1px solid #3B9BF1;
+  font-size: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.editor-area,
+.upload-cont {
+  width: 88%;
+  display: inline-block;
+
+}
+
+.upload-cont {
+  padding: 10px !important;
+}
+
+.blog-row-3 {
+  padding-bottom: 50px;
+}
+
+.red-dot {
+  font-size: 50px;
+  color: red;
+}
+
+.btns-div {
+  padding-top: 40px;
+}
+
+.btns-div button {
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+  border: 1px solid;
+  margin-right: 35px;
+  width: 130px;
+  height: 42px;
+}
+
+.cancel-btn {
+  border: 1px solid #B26D6E !important;
+}
+
+.Save-btn {
+  border: 1px solid #76A18E !important;
+}
+
+.Publish-btn {
+  border: 1px solid #7293A9 !important;
+}
+
+.editor {
+  height: 100px;
+}
+
+/* form css-c */
+.blog-img {
+
+  padding-left: 7.5rem;
+}

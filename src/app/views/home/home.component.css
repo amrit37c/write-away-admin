@@ -355,6 +355,14 @@
   width: 171px;
 }
 
+.width-172 {
+  width: 172px;
+}
+
+.width-170 {
+  width: 170px;
+}
+
 .mar-zero {
   margin: 0 !important;
 }
@@ -377,6 +385,10 @@
 
 .width-122 {
   width: 122px;
+}
+
+.width-124 {
+  width: 124px;
 }
 
 @media screen and (max-width: 767px) {

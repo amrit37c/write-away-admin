@@ -1,1 +1,2 @@
-<ckeditor [(ngModel)]="content" [editor]="Editor" [data]="content" (change)="onChange($event)"></ckeditor>
+<ckeditor [(ngModel)]="content" [config]="toolbar" [editor]="Editor" [data]="content" (change)="onChange($event)">
+</ckeditor>

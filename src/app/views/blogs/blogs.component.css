@@ -70,3 +70,276 @@ tr td.table-action-cell {
 }
 
 /* Saved-cancel-publish buttons */
+
+/* read-blog-css-c */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mar-zero {
+  margin: 0 !important;
+}
+
+.pad-zero {
+  padding: 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.select-cont {
+  text-align: right;
+  padding-right: 14px;
+  padding-top: 56px;
+}
+
+.select-cont select {
+  border: 1px solid #3B9BF1;
+  color: lightgray;
+  font-size: 10px;
+  height: 32px;
+  padding: 6px;
+  width: 155px;
+  border-radius: 3px;
+}
+
+.dashboard-blogs {
+  padding-top: 18px;
+}
+
+.dashboard-blogs label {
+  font-weight: 700 !important;
+  font-size: 10px;
+  color: #D9569D;
+}
+
+.age-group-header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 28px;
+}
+
+.logo-cont {
+  width: 19%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.logo-age-grpup {
+  width: 100%;
+}
+
+.age-group-main-content {
+  padding: 2px 0 10px 0%;
+}
+
+.age-group-add-btn {
+  background-color: #3B9BF1;
+  color: white;
+  border: none;
+  font-size: 17px;
+  border-radius: 10px;
+  height: 46px;
+  width: 86px;
+}
+
+.fs-20 {
+  font-size: 30px;
+}
+
+.age-group-table-cont {
+  width: 81%;
+}
+
+.age-group-table-cont.recent {
+  width: 100%;
+}
+
+.age-group-table-cont table {
+  border: 3px solid #0F6DB4;
+}
+
+.age-group-table-cont th {
+  background-color: #3B9BF1;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  height: 60px;
+}
+
+.age-group-table-cont td {
+  border-right: 1px solid #3B9BF1;
+  text-align: center;
+  padding: 15px 10px 15px 10px;
+}
+
+.s-no-th {
+  width: 80px;
+}
+
+.Date-time-th {
+  width: 170px;
+}
+
+.Title-th {
+  width: 150px;
+}
+
+.Content-th {
+  width: 190px;
+}
+
+.Media-th {
+  width: 180px;
+}
+
+.Actions-th {}
+
+.age-grp-edit-btn {
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
+  font-weight: 700;
+  border: 1px solid #94999C;
+  background-color: white;
+  border-radius: 15px;
+  margin-right: 15px;
+}
+
+.age-grp-delete-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #BA7C7B;
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
+}
+
+.age-grp-Publish-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #416C8A;
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+  margin-right: 15px;
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
+}
+
+.back-lit-blue {
+  background-color: #D8EAF6;
+}
+
+.add-new-cont {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 165px;
+}
+
+.from-to-age-pop-up {
+  display: flex;
+}
+
+.age-from-to {
+  background-color: #3B9BF1;
+  color: white;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 3px;
+}
+
+.age-from-to select {
+  border: 1px solid #3B9BF1;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: #F0F7FF;
+  padding: 0px 20px 0px 20px;
+  font-size: 10px;
+  color: lightgray;
+}
+
+.popup-add-btn {
+  border: none;
+  color: white;
+  background-color: #3B9BF1;
+  border-radius: 10px;
+  padding: 0px 13px 0px 13px;
+  font-size: 14px;
+}
+
+.mar-ds {
+  margin-right: 15px;
+}
+
+.age-grp-select-cont {
+  padding-left: 40px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.age-grp-select-cont button {
+  background-color: #3B9BF1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 10px;
+  height: 50px;
+  width: 170px;
+}
+
+@media (max-width: 767px) {
+  .age-group-header {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .logo-cont {
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 0px;
+    text-align: center;
+  }
+
+  .age-group-main-content {
+    padding: 20px 5px 20px 5px;
+    padding-top: 20px;
+  }
+
+  .add-new-cont {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .from-to-age-pop-up {
+    padding-top: 10px;
+  }
+
+  .age-grp-edit-btn {
+    margin-right: 0px;
+  }
+
+  .to-sapn {
+    display: block;
+  }
+}
+
+.media-img {
+  height: 200px;
+  width: 200px;
+}
+
+/* read-blog-css-c */

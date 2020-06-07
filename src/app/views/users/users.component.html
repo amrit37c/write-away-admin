@@ -1,0 +1,130 @@
+<div class="age-group-table-cont row">
+  <div class="col-md-1 mb-4">
+    <div class="first-row-item">
+      <div class="header-cont">
+        Active
+      </div>
+      <div class="no-cont">
+        <span>{{activeCount}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1 mb-4">
+    <div class="first-row-item">
+      <div class="header-cont">
+        Blocked
+      </div>
+      <div class="no-cont">
+        <span>{{blockCount}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1 mb-4">
+    <div class="first-row-item">
+      <div class="header-cont">
+        Deleted
+      </div>
+      <div class="no-cont">
+        <span>{{deleteCount}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="col-md-12 table-responsive">
+    <table class="table admin-blogs-table active-blog table-responsive">
+      <tbody>
+        <tr>
+          <th class="s-no-th">S.No.</th>
+          <th class="Date-time-th">Date-time</th>
+          <th class="Title-th">Name</th>
+          <th class="Content-th">Location</th>
+          <th class="Media-th">Age Group</th>
+          <th class="s-no-th">Activities</th>
+          <th class="s-no-th">Leader Board Rank</th>
+          <th class="s-no-th">Rating</th>
+          <th class="s-no-th">Total Purchase</th>
+          <th class="s-no-th">Last Purchase</th>
+          <th class="s-no-th"> Refferal</th>
+          <th class="s-no-th">Total Signin</th>
+          <th class="s-no-th">Actions</th>
+          <th class="s-no-th">Remakrs</th>
+
+        </tr>
+        <tr *ngFor="let row of data;let i=index">
+          <td>{{i+1}}</td>
+          <td> {{ row.createdAt |  date:'dd-MM-yyyy' }}</td>
+          <td> {{ row.firstName}} - {{ row.lastName }} </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="table-action-cell">
+            <div class="buttons-container">
+              <button class="age-grp-Publish-btn" (click)="updateUser('block', row)"
+                *ngIf="row?.status == '1'">Block</button>
+              <button class="age-grp-edit-btn" [disabled]="row.status == '2'"
+                (click)="updateUser('delete', row)">Delete</button>
+              <button class="age-grp-delete-btn" (click)="updateUser('unblock', row)"
+                *ngIf="row?.status == '0'">Unblock</button>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+  <div class="row" *ngIf="blogAll">
+    <div class="col-md-3">
+      <table class="table admin-blogs-table active-blog">
+        <tbody>
+          <tr>
+            <th>Recent Blogs</th>
+            <th>Archieved Blogs</th>
+
+          </tr>
+          <tr>
+            <td>{{recentBlogs && recentBlogs.length || 0 }}</td>
+            <td>{{archievedBlogs && archievedBlogs.length || 0}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-9"></div>
+
+  </div>
+  <div class="row" *ngIf="blogAll">
+    <div class="col-md-8">
+      <table class="table admin-blogs-table all-blogs active-blog">
+        <tbody>
+          <tr>
+            <th colspan="4" class="text-center">All Blogs {{data.length}}</th>
+
+
+          </tr>
+          <tr>
+            <td><span>Avg. Reads </span>{{ '0' }}</td>
+            <td><span>Avg. Likes </span>{{  '0' }}</td>
+            <td><span>Avg. Shares</span>{{'0'}}</td>
+            <td><span>Avg. Copied Links</span> {{ '0'}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-7"></div>
+
+  </div>
+
+</div>

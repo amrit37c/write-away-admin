@@ -1,5 +1,5 @@
 <div class="align-admin-sec  response-form">
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <button class="btn add-genre text-white mb-3" (click)="enableAddGenre()">
       <span class="fa fa-plus"></span>
       Add
@@ -10,10 +10,7 @@
     <input type="text" [(ngModel)]="title" class="form-control" />
     <button class="btn-primary text-white" (click)="addGenre()">Add</button>
   </div>
-  <!-- <div class="col-md-6" *ngIf="isAddGenre">
-    
-  </div> -->
-
+  
   <div class="">
     <table class="table table-bordered publishing-table table-responsive ">
       <tbody>
@@ -33,18 +30,64 @@
             <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
           </td>
           <td>
-            <!-- <img *ngFor="let img of row.topicMedia" class="img-responsive img-thumbnail"
-              src="http://localhost:3000/images/{{img}}" style="height: 200px;width: 200px;" /> -->
             <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
-
-            <!-- <div>
-              <input type="file" (change)="onFileChanged($event, row._id)">
-            </div> -->
           </td>
           <td>{{row.brief}}</td>
         </tr>
       </tbody>
     </table>
+  </div> -->
+
+
+  <div class="age-group-main-content">
+
+    <div class="add-new-cont add-new-cont pb-2">
+
+      <button (click)="enableAddGenre()" class="age-group-add-btn">
+        + Add
+      </button>
+
+      <div class="from-to-age-pop-up" id="from-to-age-pop-up" *ngIf="isAddGenre">
+        <div class="age-from-to">
+          <input type="text" [(ngModel)]="title" placeholder="Enter Title" class="form-control age-fields" />
+        </div>
+        <button class="popup-add-btn"
+          (click)="editable ? updateAge() : addGenre()">{{editable ? 'Update' : 'Add'}}</button>
+      </div>
+    </div>
+
+    <div class="age-group-table-cont">
+
+      <table>
+        <thead>
+          <tr>
+            <th class="s-no-th">S.No.</th>
+            <th class="age-groups-th">Age-Groups</th>
+            <th class="actions-th">Actions</th>
+            <th class="actions-th">Topic Media's</th>
+            <th class="logged-bt-th">Logged by:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data;let i=index;let odd=odd;let even=even"
+            [ngClass]="{'back-lit-blue': odd, '':even}">
+
+            <td>{{i+1}}</td>
+            <td>{{row.title}}</td>
+            <td>
+              <button class="btn-save btn-rounded" (click)="openModal(template, row)">Edit</button>
+              <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
+            </td>
+            <td>
+              <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
+            </td>
+            <td>{{row.brief}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
 
 </div>
@@ -52,7 +95,16 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Topic Media</h4>
+    <span class="Genre-name-head"> {{activeGenre}} </span>
+    <span class="Genre-name-head">Topic Medias ({{topicMedia.topicMedia.length}})</span>
+
+    <div class="bottom-pop-up-head">
+      <!-- <span class="Genre-name-head">Genre Name</span>
+      <span class="Genre-name-head">Topic Medias (100)</span> -->
+      <button class="btm-add-btn" (click)="enableAddImage()">+ Add</button>
+
+    </div>
+
     <button class="close closepop-btn" type="button" (click)="decline();">
       <span>×</span>
     </button>
@@ -60,24 +112,41 @@
   </div>
   <div class="modal-body">
 
-    <button class="btn btn-primary" (click)="enableAddImage()">Add </button>
+
+    <div id="third-pop-up" class="third-pop-up" style="display: flex;" *ngIf="isAddImage">
+      <div class="from-to-age-pop-up third-pop-up-cont">
+        <div class="age-from-to third-pop-up-cont">
+          <input type="text" [(ngModel)]="title" class="form-control" />
+
+        </div>
+
+        <div class="folder-div" (click)="chooseImage()">
+          <img src="assets/images/folder-icon.svg">
+        </div>
+      </div>
+    </div>
+
     <div *ngIf="isAddImage">
-      <input type="file" (change)="onFileChanged($event, topicMedia._id)" />
+
+      <input type="file" id="mediaImage" (change)="onFileChanged($event, topicMedia._id)" class="d-none" />
     </div>
     <table class="table-responsive">
       <thead>
         <tr>
-          <th>Sr. No</th>
-          <th>Media</th>
-          <th>Actions</th>
+
+          <th class="s-no-th">Sr. No.</th>
+          <th class="age-groups-th">Media</th>
+          <th class="actions-th">Actions</th>
+
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let media of topicMedia.topicMedia;let i=index">
           <td>{{i+1}}</td>
+          <!-- <td>{{topicMedia.title}}</td> -->
           <td><img src="http://localhost:3000/images/{{media}}" class="genre-img" /></td>
           <td>
-            <button class="btn-danger" (click)="deleteOneImg(topicMedia._id, media)" delete>Delete</button>
+            <button class="age-grp-delete-btn" (click)="deleteOneImg(topicMedia._id, media)">Delete</button>
           </td>
         </tr>
       </tbody>

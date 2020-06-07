@@ -9,6 +9,13 @@ import { ChangeEvent } from "@ckeditor/ckeditor5-angular";
 })
 export class EditorComponent implements OnInit {
   public Editor = ClassicEditor;
+  toolbar = [
+    ["Source", "-", "NewPage", "Preview", "-", "Templates"],
+    ["Cut", "Copy", "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo"],
+    "/",
+    ["Bold", "Italic"],
+  ];
+
   content: any;
 
   @Input() data;

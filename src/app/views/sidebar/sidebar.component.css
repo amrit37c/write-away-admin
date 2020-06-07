@@ -353,7 +353,7 @@ body {
 }
 
 .dashboard-blogs label {
-  font-size: 8px;
+  font-size: 10px;
   padding-top: 5px;
   color: #EF3A9F;
   word-spacing: 2px;
@@ -425,12 +425,15 @@ body {
 
 .logo:focus,
 .menu-title:focus,
-.blogs-dropdown:focus {
+.blogs-dropdown:focus,
+span {
   outline: none;
 }
 
 .blogs-margin,
-.main-left-topbar {
+.main-left-topbar,
+.dashboard-blogs .dashboard-q,
+.dashboard-blogs label {
   font-family: 'Montserrat', sans-serif;
 }
 

@@ -11,6 +11,8 @@ export const environment = {
     genre: "genre",
     ageGroup: "age-group",
     dashboard: "admin-dashboard",
+    users: "users",
+    blogHome: "blog-home",
   },
 };
 

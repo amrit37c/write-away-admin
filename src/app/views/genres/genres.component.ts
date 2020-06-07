@@ -22,6 +22,7 @@ export class GenresComponent implements OnInit {
     ignoreBackdropClick: true,
     class: "modelWidth",
   };
+  activeGenre = "";
 
   constructor(
     private service: GenreService,
@@ -55,6 +56,8 @@ export class GenresComponent implements OnInit {
       })
       .subscribe((_response) => {
         console.log(_response);
+        this.title = "";
+        this.getGenres();
       });
   }
 
@@ -62,17 +65,23 @@ export class GenresComponent implements OnInit {
     const files = event.target.files[0];
     const uploadData = new FormData();
     uploadData.append("topicMedia", files);
+    uploadData.append("title", this.title);
 
     this.service.put(id, uploadData).subscribe((_response) => {
       alert(_response.body.message);
       // this.decline();
       this.getGenres();
+      this.isAddImage = false;
       this.topicMedia = _response.body.data;
+      this.activeGenre = this.title;
+      // this.title = "";
     });
   }
 
   openModal(template: TemplateRef<any>, imgs) {
+    this.activeGenre = imgs.title;
     this.topicMedia = imgs;
+    this.title = imgs.title;
     this.modalRef = this.modalService.show(template, this.Modelconfig);
   }
 
@@ -81,28 +90,41 @@ export class GenresComponent implements OnInit {
     this.topicMedia = [];
     this.isAddGenre = false;
     this.isAddImage = false;
+    this.activeGenre = "";
+    this.title = "";
   }
 
   deleteGenre(id) {
-    this.service.delete(id).subscribe((_response) => {
-      alert(_response.body.message);
-      this.getGenres();
-      // this.topicMedia = _response.body.data;
-    });
+    if (confirm("Do you want to delete this genre?")) {
+      this.service.delete(id).subscribe((_response) => {
+        alert(_response.body.message);
+        this.getGenres();
+        // this.topicMedia = _response.body.data;
+      });
+    }
   }
 
   deleteOneImg(id, img) {
-    this.service
-      .removeImg(id, {
-        img: img,
-      })
-      .subscribe((_response) => {
-        alert(_response.body.message);
-        this.getGenres();
-        this.topicMedia = _response.body.data;
-      });
+    if (confirm("Do you want to delete this genre image?")) {
+      this.service
+        .removeImg(id, {
+          img: img,
+        })
+        .subscribe((_response) => {
+          alert(_response.body.message);
+          this.getGenres();
+          this.topicMedia = _response.body.data;
+        });
+    }
   }
   enableAddImage() {
     this.isAddImage = !this.isAddImage;
+  }
+
+  chooseImage() {
+    let element: HTMLElement = document.getElementById(
+      "mediaImage"
+    ) as HTMLElement;
+    element.click();
   }
 }

@@ -1,75 +1,104 @@
-<h4 class="title">{{currentBlog}} Blogs</h4>
-<table class="table admin-blogs-table active-blog">
-  <tbody>
-    <tr>
-      <th>Date/Time</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Media</th>
-      <th>Reads</th>
-      <th>Likes</th>
-      <th>Shares</th>
-      <th>Copied links</th>
-      <th *ngIf="currentBlog=='Saved'">Action</th>
-    </tr>
-    <tr *ngFor="let row of data;let i=index">
-      <td> {{ row.createdAt |  date:'dd-MM-yyyy' }}</td>
-      <td> {{ row.title }} </td>
-      <td [innerHTML]="row.content"> </td>
-      <td><img src="http://localhost:3000/images/{{row.media}}" class="media-img" /></td>
-      <td>{{ row.readCount }}</td>
-      <td>{{ row.likeCount }}</td>
-      <td>{{ row.shareCount }}</td>
-      <td>{{ row.copiesCount }}</td>
-      <td *ngIf="currentBlog=='Saved'" class="table-action-cell">
-        <div class="buttons-container">
-          <button class="btn btn-rounded btn-publish" (click)="publishBlog(row._id)">Publish</button>
-          <button class="btn btn-rounded btn-save" (click)="editBlog(row._id)">Edit</button>
-          <button class="btn btn-rounded btn-cancel" (click)="delete(row._id)">Delete</button>
-        </div>
-      </td>
-    </tr>
+<div class="age-group-table-cont" [ngClass]="{recent:currentBlog=='Recent'}">
+  <h4 class="title">{{currentBlog}} Blogs</h4>
+  <table class="table admin-blogs-table active-blog">
+    <tbody>
+      <tr>
+        <!-- <th>Date/Time</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Media</th>
+        <th>Reads</th>
+        <th>Likes</th>
+        <th>Shares</th>
+        <th>Copied links</th> 
+        <th *ngIf="currentBlog=='Saved'">Action</th>
+          
+      -->
+        <th class="s-no-th">S.No.</th>
+        <th class="Date-time-th">Date-time</th>
+        <th class="Title-th">Title</th>
+        <th class="Content-th">Content</th>
+        <th class="Media-th">Media</th>
+        <th *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">Reads</th>
+        <th *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">Likes</th>
+        <th *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">Shares</th>
+        <th *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">Copied links</th>
+        <th *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">Bookmark</th>
+        <th class="Actions-th" *ngIf="currentBlog=='Saved'">Actions</th>
 
-  </tbody>
-</table>
-<div class="row" *ngIf="blogAll">
-  <div class="col-md-3">
-    <table class="table admin-blogs-table active-blog">
-      <tbody>
-        <tr>
-          <th>Recent Blogs</th>
-          <th>Archieved Blogs</th>
+      </tr>
+      <tr *ngFor="let row of data;let i=index">
+        <td>{{i+1}}</td>
+        <td> {{ row.createdAt |  date:'dd-MM-yyyy' }}</td>
+        <td> {{ row.title }} </td>
+        <td [innerHTML]="row.content.substr(0,50)"> </td>
+        <td><img src="http://localhost:3000/images/{{row.media}}" class="media-img" /></td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
+          {{ row.readCount.length }}</td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">{{ row.likeCount }}
+        </td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
+          {{ row.shareCount.length || '0' }}</td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved' ">
+          {{ row.copiesCount || '0' }}</td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
+          {{ row.bookmarkCount || '0' }}</td>
+        <td *ngIf="currentBlog=='Saved'" class="table-action-cell">
+          <div class="buttons-container">
+            <button class="age-grp-Publish-btn" (click)="publishBlog(row._id)">Publish</button>
+            <button class="age-grp-edit-btn" (click)="editBlog(row._id)">Edit</button>
+            <button class="age-grp-delete-btn" (click)="delete(row._id)">Delete</button>
 
-        </tr>
-        <tr>
-          <td>{{recentBlogs && recentBlogs.length || 0 }}</td>
-          <td>{{archievedBlogs && archievedBlogs.length || 0}}</td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+
+  <div class="row" *ngIf="blogAll">
+    <div class="col-md-3">
+      <table class="table admin-blogs-table active-blog">
+        <tbody>
+          <tr>
+            <th>Recent Blogs</th>
+            <th>Archieved Blogs</th>
+
+          </tr>
+          <tr>
+            <td>{{recentBlogs && recentBlogs.length || 0 }}</td>
+            <td>{{archivedBlogs && archivedBlogs.length || 0}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-9"></div>
+
   </div>
-  <div class="col-md-9"></div>
-
-</div>
-<div class="row" *ngIf="blogAll">
-  <div class="col-md-8">
-    <table class="table admin-blogs-table all-blogs active-blog">
-      <tbody>
-        <tr>
-          <th colspan="4" class="text-center">All Blogs {{data.length}}</th>
+  <div class="row" *ngIf="blogAll">
+    <div class="col-md-8">
+      <table class="table admin-blogs-table all-blogs active-blog">
+        <tbody>
+          <tr>
+            <th colspan="4" class="text-center">All Blogs {{data.length}}</th>
 
 
-        </tr>
-        <tr>
-          <td><span>Avg. Reads </span>{{ '0' }}</td>
-          <td><span>Avg. Likes </span>{{  '0' }}</td>
-          <td><span>Avg. Shares</span>{{'0'}}</td>
-          <td><span>Avg. Copied Links</span> {{ '0'}}</td>
-        </tr>
+          </tr>
+          <tr>
+            <td><span>Avg. Reads </span>{{ '0' }}</td>
+            <td><span>Avg. Likes </span>{{  '0' }}</td>
+            <td><span>Avg. Shares</span>{{'0'}}</td>
+            <td><span>Avg. Copied Links</span> {{ '0'}}</td>
+          </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-7"></div>
+
   </div>
-  <div class="col-md-7"></div>
 
 </div>

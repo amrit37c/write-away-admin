@@ -1,32 +1,77 @@
-.genre-img {
-  height: 200px;
-  width: 200px;
+.blogs-margin {
+  margin-top: 6rem;
 }
 
-.btn-rounded {
-  border-radius: 20px;
-  width: 39%;
-  background-color: #fff;
-  padding: 7px;
+.admin-blogs-table {
+  border: 2px solid #3b9bf1;
+  -webkit-box-shadow: -1px 7px 8px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 7px 8px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 7px 8px -6px rgba(0, 0, 0, 0.75);
+}
+
+.admin-blogs-table tr:first-child {
+  color: white;
+  text-align: center;
+  background-color: #3b9bf1;
+  font-size: 10px;
+  font-weight: 500 !important;
+}
+
+.admin-blogs-table th {
+  text-align: center;
+  padding: 10px !important;
+}
+
+.active-blog td,
+.title {
+  color: #d43299 !important;
+}
+
+.active-blog td span {
+  color: #5e5e5d !important;
+}
+
+.admin-blogs-table td {
+  text-align: center;
+  border: 1px solid #3b9bf1;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #d8eaf6;
+}
+
+tr td.table-action-cell {
+  width: 30%;
+}
+
+/* Saved-cancel-publish buttons */
+.btn-publish {
+  border: 1px solid #adc9d9;
 }
 
 .btn-save {
   border: 1px solid #c5dfd4;
 }
 
-.btn-delete {
-  border: 1px solid #823a3e;
+.btn-cancel {
+  border: 1px solid #edbebd;
 }
 
-button.btn-save.btn-rounded:first-child {
-  margin: 0 15px;
+
+
+.buttons-container button.btn-rounded {
+  border-radius: 20px;
+  width: 100%;
+  margin-right: 20px;
 }
 
-th:nth-child(3) {
-  width: 47%;
+.btn-rounded:nth-child(3) {
+  margin-right: unset !important;
 }
 
-/* design css */
+/* Saved-cancel-publish buttons */
+
+/* read-blog-css-c */
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -46,15 +91,15 @@ body {
 
 .select-cont {
   text-align: right;
-  padding-right: 65px;
-  padding-top: 62px;
+  padding-right: 14px;
+  padding-top: 56px;
 }
 
 .select-cont select {
   border: 1px solid #3B9BF1;
   color: lightgray;
   font-size: 10px;
-  height: 37px;
+  height: 32px;
   padding: 6px;
   width: 155px;
   border-radius: 3px;
@@ -66,7 +111,7 @@ body {
 
 .dashboard-blogs label {
   font-weight: 700 !important;
-  font-size: 12px;
+  font-size: 10px;
   color: #D9569D;
 }
 
@@ -86,25 +131,27 @@ body {
   width: 100%;
 }
 
-.age-group-main-content {}
+.age-group-main-content {
+  padding: 2px 0 10px 0%;
+}
 
 .age-group-add-btn {
   background-color: #3B9BF1;
   color: white;
   border: none;
-  font-size: 20px;
+  font-size: 17px;
   border-radius: 10px;
-  height: 50px;
-  width: 100px;
+  height: 46px;
+  width: 86px;
 }
 
 .fs-20 {
   font-size: 30px;
 }
 
-.age-group-table-cont {
-  width: 81%;
 
+.age-group-table-cont.recent {
+  width: 100%;
 }
 
 .age-group-table-cont table {
@@ -115,7 +162,7 @@ body {
   background-color: #3B9BF1;
   color: white;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   height: 60px;
 }
@@ -123,34 +170,40 @@ body {
 .age-group-table-cont td {
   border-right: 1px solid #3B9BF1;
   text-align: center;
-  padding: 15px 0px 15px 0px;
+  padding: 15px 10px 15px 10px;
 }
 
 .s-no-th {
-  width: 95px;
+  width: 80px;
 }
 
-.age-groups-th {
-  width: 210px;
+.Date-time-th {
+  width: 170px;
 }
 
-.actions-th {
-  width: 250px;
+.Title-th {
+  width: 150px;
 }
 
-.logged-bt-th {
-  width: 465px;
+.Content-th {
+  width: 190px;
 }
+
+.Media-th {
+  width: 180px;
+}
+
+.Actions-th {}
 
 .age-grp-edit-btn {
-  font-size: 12px;
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
   font-weight: 700;
-  border: 1px solid #A8CBE2;
+  border: 1px solid #94999C;
   background-color: white;
-  height: 30px;
-  width: 80px;
   border-radius: 15px;
-  margin-right: 25px;
+  margin-right: 15px;
 }
 
 .age-grp-delete-btn {
@@ -161,6 +214,23 @@ body {
   height: 30px;
   width: 80px;
   border-radius: 15px;
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
+}
+
+.age-grp-Publish-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #416C8A;
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+  margin-right: 15px;
+  font-size: 10px;
+  width: 50px;
+  height: 25px;
 }
 
 .back-lit-blue {
@@ -170,20 +240,19 @@ body {
 .add-new-cont {
   display: flex;
   justify-content: space-between;
-  padding-right: 187px;
+  padding-right: 165px;
 }
 
 .from-to-age-pop-up {
   display: flex;
-  /* display: none; */
 }
 
 .age-from-to {
   background-color: #3B9BF1;
   color: white;
-  border-radius: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 4px;
   padding-right: 10px;
   padding-left: 10px;
   margin-right: 3px;
@@ -191,12 +260,12 @@ body {
 
 .age-from-to select {
   border: 1px solid #3B9BF1;
-  height: 35px;
+  height: 30px;
   border-radius: 5px;
   margin-left: 5px;
   background-color: #F0F7FF;
-  padding: 0px 35px 0px 35px;
-  font-size: 12px;
+  padding: 0px 20px 0px 20px;
+  font-size: 10px;
   color: lightgray;
 }
 
@@ -206,11 +275,17 @@ body {
   background-color: #3B9BF1;
   border-radius: 10px;
   padding: 0px 13px 0px 13px;
-  font-size: 19px;
+  font-size: 14px;
+}
+
+.mar-ds {
+  margin-right: 15px;
 }
 
 .age-grp-select-cont {
   padding-left: 40px;
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
 
 .age-grp-select-cont button {
@@ -259,30 +334,29 @@ body {
   }
 }
 
-/* design css */
-
-
-/* my css  */
-.age-group-main-content,
-.align-admin-sec {
-  font-family: 'Montserrat', sans-serif;
+.media-img {
+  height: 200px;
+  width: 200px;
 }
 
-.from-to-age-pop-up {
-  width: 44%;
+/* read-blog-css-c */
+.first-row-item {
+  width: auto;
 }
 
-.age-from-to {
-  width: 92%;
+.header-cont {
+  background-color: #3B9BF1;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 11.8px;
 }
 
-.age-fields {
-  width: 40%;
-  display: inline-block;
+.no-cont {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 600;
+  border-bottom: 1px solid #7DA0BD;
 }
-
-button:focus {
-  outline: none;
-}
-
-/* my css  */

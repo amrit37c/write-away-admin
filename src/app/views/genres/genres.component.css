@@ -37,3 +37,564 @@ th:nth-child(3) {
 .add-genre:focus {
   box-shadow: none;
 }
+
+
+/* design css */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mar-zero {
+  margin: 0 !important;
+}
+
+.pad-zero {
+  padding: 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.select-cont {
+  text-align: right;
+  padding-right: 65px;
+  padding-top: 62px;
+}
+
+.select-cont select {
+  border: 1px solid #3B9BF1;
+  color: lightgray;
+  font-size: 10px;
+  height: 37px;
+  padding: 6px;
+  width: 155px;
+  border-radius: 3px;
+}
+
+.dashboard-blogs {
+  padding-top: 18px;
+}
+
+.dashboard-blogs label {
+  font-weight: 700 !important;
+  font-size: 12px;
+  color: #D9569D;
+}
+
+.age-group-header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 28px;
+}
+
+.logo-cont {
+  width: 19%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.logo-age-grpup {
+  width: 100%;
+}
+
+.age-group-main-content {}
+
+.age-group-add-btn {
+  background-color: #3B9BF1;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+}
+
+.fs-20 {
+  font-size: 30px;
+}
+
+.age-group-table-cont {
+  width: 81%;
+
+}
+
+.age-group-table-cont table {
+  border: 3px solid #0F6DB4;
+}
+
+.age-group-table-cont th {
+  background-color: #3B9BF1;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  height: 60px;
+}
+
+.age-group-table-cont td {
+  border-right: 1px solid #3B9BF1;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+}
+
+.s-no-th {
+  width: 95px;
+}
+
+.age-groups-th {
+  width: 210px;
+}
+
+.actions-th {
+  width: 250px;
+}
+
+.logged-bt-th {
+  width: 465px;
+}
+
+.age-grp-edit-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #A8CBE2;
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+  margin-right: 25px;
+}
+
+.age-grp-delete-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #BA7C7B;
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  border-radius: 15px;
+}
+
+.back-lit-blue {
+  background-color: #D8EAF6;
+}
+
+.add-new-cont {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 187px;
+}
+
+.from-to-age-pop-up {
+  display: flex;
+  /* display: none; */
+}
+
+.age-from-to {
+  background-color: #3B9BF1;
+  color: white;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 3px;
+}
+
+.age-from-to select {
+  border: 1px solid #3B9BF1;
+  height: 35px;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: #F0F7FF;
+  padding: 0px 35px 0px 35px;
+  font-size: 12px;
+  color: lightgray;
+}
+
+.popup-add-btn {
+  border: none;
+  color: white;
+  background-color: #3B9BF1;
+  border-radius: 10px;
+  padding: 0px 13px 0px 13px;
+  font-size: 19px;
+}
+
+.age-grp-select-cont {
+  padding-left: 40px;
+}
+
+.age-grp-select-cont button {
+  background-color: #3B9BF1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 10px;
+  height: 50px;
+  width: 170px;
+}
+
+@media (max-width: 767px) {
+  .age-group-header {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .logo-cont {
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 0px;
+    text-align: center;
+  }
+
+
+  .add-new-cont {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .from-to-age-pop-up {
+    padding-top: 10px;
+  }
+
+  .age-grp-edit-btn {
+    margin-right: 0px;
+  }
+
+  .to-sapn {
+    display: block;
+  }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mar-zero {
+  margin: 0 !important;
+}
+
+.pad-zero {
+  padding: 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.select-cont {
+  text-align: right;
+  padding-right: 153px;
+  padding-top: 56px;
+}
+
+.select-cont select {
+  border: 1px solid #3B9BF1;
+  color: lightgray;
+  font-size: 10px;
+  height: 32px;
+  padding: 6px;
+  width: 155px;
+  border-radius: 3px;
+}
+
+.dashboard-blogs {
+  padding-top: 18px;
+}
+
+.dashboard-blogs label {
+  font-weight: 700 !important;
+  font-size: 10px;
+  color: #D9569D;
+}
+
+.age-group-header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 28px;
+}
+
+.logo-cont {
+  width: 19%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.logo-age-grpup {
+  width: 100%;
+}
+
+
+.age-group-add-btn {
+  background-color: #3B9BF1;
+  color: white;
+  border: none;
+  font-size: 17px;
+  border-radius: 10px;
+  height: 46px;
+  width: 86px;
+}
+
+.fs-20 {
+  font-size: 30px;
+}
+
+.age-group-table-cont {
+  padding-top: 20px;
+}
+
+.age-group-table-cont table {
+  border: 3px solid #0F6DB4;
+}
+
+.age-group-table-cont th {
+  background-color: #3B9BF1;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 400;
+  height: 60px;
+}
+
+.age-group-table-cont td {
+  border-right: 1px solid #3B9BF1;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+}
+
+.s-no-th {
+  width: 80px;
+}
+
+.age-groups-th {
+  width: 200px;
+}
+
+.actions-th {
+  width: 225px;
+}
+
+.Topic-media-th {
+  width: 150px;
+}
+
+.logged-by-th {
+  width: 140px;
+}
+
+.age-grp-edit-btn {
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid #A8CBE2;
+  background-color: white;
+  height: 30px;
+  width: 60px;
+  border-radius: 15px;
+  margin-right: 25px;
+}
+
+.age-grp-delete-btn {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #BA7C7B;
+  background-color: white;
+  height: 30px;
+  width: 60px;
+  border-radius: 15px;
+}
+
+.back-lit-blue {
+  background-color: #D8EAF6;
+}
+
+.add-new-cont {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 290px;
+}
+
+.from-to-age-pop-up {
+  display: flex;
+}
+
+.age-from-to {
+  background-color: #3B9BF1;
+  color: white;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 3px;
+}
+
+.age-from-to input,
+.age-from-to label {
+  border: 1px solid #3B9BF1;
+  height: 34px;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: #F0F7FF;
+  font-size: 14px;
+  color: lightgray;
+  width: 100%;
+  padding: 7px 7px;
+}
+
+.popup-add-btn {
+  border: none;
+  color: white;
+  background-color: #3B9BF1;
+  border-radius: 10px;
+  padding: 0px 13px 0px 13px;
+  font-size: 14px;
+}
+
+.mar-ds {
+  margin-right: 15px;
+}
+
+.bottom-pop-up {
+  padding: 30px 0px 50px 90px;
+}
+
+.Genre-name-head {
+  font-size: 18px;
+  padding-right: 30px;
+  font-weight: 600;
+}
+
+.btm-add-btn {
+  border: none;
+  color: white;
+  background-color: #3B9BF1;
+  border-radius: 10px;
+  padding: 0px 18px 0px 18px;
+  font-size: 14px;
+  height: 45px;
+}
+
+.btm-table {
+  padding-top: 20px;
+}
+
+.btm-table table {
+  border-right: 1px solid #3B9BF1;
+}
+
+.btm-table th {
+  background-color: #3B9BF1;
+  border-right: 1px solid white;
+  text-align: center;
+  padding: 5px 10px 5px 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btm-table td {
+  text-align: center;
+  padding: 5px 10px 5px 10px;
+  min-height: 10px;
+  border: 1px solid #3B9BF1;
+  border-right: none;
+}
+
+.bottom-pop-up-head {
+  display: flex;
+}
+
+.third-pop-up {
+  display: inline-block;
+  float: right;
+  width: 100%;
+}
+
+.third-pop-up-cont {
+  padding-bottom: 8px;
+}
+
+.folder-div {
+  border: 1px solid #3B9BF1;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 5px;
+  border-radius: 10px;
+}
+
+.folder-div img {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .age-group-header {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .logo-cont {
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 0px;
+    text-align: center;
+  }
+
+  .age-group-main-content {
+    padding: 20px 5px 20px 5px;
+    padding-top: 20px;
+  }
+
+  .add-new-cont {
+    display: block;
+    padding-right: 0px;
+  }
+
+  .from-to-age-pop-up {
+    padding-top: 10px;
+  }
+
+  .age-grp-edit-btn {
+    margin-right: 0px;
+  }
+
+  .to-sapn {
+    display: block;
+  }
+}
+
+
+/* design css */
+
+
+/* my css  */
+.age-group-main-content,
+.align-admin-sec,
+.modal-content {
+  font-family: 'Montserrat', sans-serif;
+}
+
+::ng-deep .modal-content {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.from-to-age-pop-up {
+  width: 100%;
+}
+
+.age-from-to {
+  width: 92%;
+}
+
+.age-fields {
+  width: 100%;
+  display: inline-block;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* my css  */

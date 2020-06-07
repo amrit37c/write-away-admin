@@ -57,8 +57,14 @@ export class FormComponent implements OnInit {
 
   onSubmit(flag: boolean) {
     console.log("called");
+
     this.submitted = true;
+
     if (this.blogForm.invalid) {
+      return;
+    }
+    if (this.editorData === "<p> </p>") {
+      alert("content is required");
       return;
     }
 
@@ -69,6 +75,7 @@ export class FormComponent implements OnInit {
 
     if (flag) {
       form.append("isPublished", "true");
+      form.append("activeBlog", "true");
     }
 
     // edit operation

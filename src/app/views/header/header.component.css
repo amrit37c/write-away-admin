@@ -2,8 +2,10 @@
   border: 1px solid #3B9BF1;
   color: lightgray;
   font-size: 10px;
-  width: 20%;
+  width: 155px;
   padding: 6px;
+  height: 32px;
+
   margin-top: 40px;
   display: inline;
 }
