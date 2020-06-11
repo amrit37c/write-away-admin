@@ -3,17 +3,6 @@
   <table class="table admin-blogs-table active-blog">
     <tbody>
       <tr>
-        <!-- <th>Date/Time</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Media</th>
-        <th>Reads</th>
-        <th>Likes</th>
-        <th>Shares</th>
-        <th>Copied links</th> 
-        <th *ngIf="currentBlog=='Saved'">Action</th>
-          
-      -->
         <th class="s-no-th">S.No.</th>
         <th class="Date-time-th">Date-time</th>
         <th class="Title-th">Title</th>
@@ -34,15 +23,16 @@
         <td [innerHTML]="row.content.substr(0,50)"> </td>
         <td><img src="http://localhost:3000/images/{{row.media}}" class="media-img" /></td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
-          {{ row.readCount.length }}</td>
-        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">{{ row.likeCount }}
+          <span (click)="openModal(stats,'read', row.readCount)">{{ row?.readCount?.length }}</span></td>
+        <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
+          {{ row?.likeCount?.length || row?.like?.length || '0' }}
         </td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
-          {{ row.shareCount.length || '0' }}</td>
+          {{ row?.shareCount?.length || '0' }}</td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved' ">
-          {{ row.copiesCount || '0' }}</td>
+          {{ row?.copiesCount?.length || '0' }}</td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
-          {{ row.bookmarkCount || '0' }}</td>
+          {{ row?.bookmarkCount?.length ||  row?.bookmark?.length || '0' }}</td>
         <td *ngIf="currentBlog=='Saved'" class="table-action-cell">
           <div class="buttons-container">
             <button class="age-grp-Publish-btn" (click)="publishBlog(row._id)">Publish</button>
@@ -102,3 +92,27 @@
   </div>
 
 </div>
+
+<ng-template #stats>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table>
+      <thead>
+        <tr>
+          <th>User </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of stats;let i=index">
+          <td>
+            <pre>{{row | json }}</pre>{{row.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

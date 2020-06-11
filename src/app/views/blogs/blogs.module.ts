@@ -10,6 +10,7 @@ import { BlogsRoutingModule } from "./blogs-routing.module";
 import { BlogsComponent } from "./blogs.component";
 import { FormComponent } from "./form/form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 @NgModule({
   declarations: [BlogsComponent, FormComponent],
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalModule.forRoot(),
   ],
 })
 export class BlogsModule {}

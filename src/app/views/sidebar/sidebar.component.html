@@ -70,22 +70,13 @@
     <div class="side-bar-top-4">
       <div class="side-bar-top-item">
         <img src="./assets/images/logs.svg" alt="">
-        <!-- <span>Blogs</span>
-        <span class="side-arrow">▸</span> -->
+
         <span (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"
           routerLink="/blogs" class="menu-title">Blogs</span>
-        <!-- <span class="fa side-arrow" aria-hidden="true"
-          [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="fa-blog"
-          (click)="isCollapsed = !isCollapsed"></span> -->
+
         <span class="side-arrow" aria-hidden="true" [ngClass]="{'rotate': isCollapsed, '':!isCollapsed}" id="fa-blog"
           (click)="isCollapsed = !isCollapsed">▸</span>
-        <!-- <span>
-          <span type="button" class="blogs-dropdown" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"><span routerLink="/blogs">Blogs</span>
-            <i aria-hidden="true" class="fa right-eco"
-              [ngClass]="{'fa-chevron-right': isCollapsed, ' fa-chevron-down':!isCollapsed}" id="fa-blog"></i>
-          </span>
-        </span> -->
+
         <div id="collapseBasic" [collapse]="!isCollapsed" class="drop-list-blog">
           <ul class="dropdown-ul">
             <li><a routerLink="/blogs/create-blog">Create Blog</a></li>

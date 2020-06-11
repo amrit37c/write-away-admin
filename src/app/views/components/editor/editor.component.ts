@@ -11,10 +11,22 @@ export class EditorComponent implements OnInit {
   public Editor = ClassicEditor;
   toolbar = [
     ["Source", "-", "NewPage", "Preview", "-", "Templates"],
-    ["Cut", "Copy", "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo"],
+    [
+      "Cut",
+      "Copy",
+      "Paste",
+      "PasteText",
+      "PasteFromWord",
+      "-",
+      "Undo",
+      "Redo",
+      "SelectAll",
+    ],
     "/",
-    ["Bold", "Italic"],
+    //["Bold", "Italic", "styles"],
   ];
+
+  tb = { toolbar: ["heading", "|", "bold", "italic", "underline"] };
 
   content: any;
 

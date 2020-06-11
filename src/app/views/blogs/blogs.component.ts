@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BlogService } from "src/app/services/blogs/blog.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-blogs",
@@ -18,8 +19,21 @@ export class BlogsComponent implements OnInit {
   archivedBlogs: Array<any> = [];
   recentCount: number = 0;
   archieveCount: number = 0;
+  activeBlog;
+  modalRef: BsModalRef;
+  Modalconfig = {
+    backdrop: true,
+    ignoreBackdropClick: true,
+    class: "modelWidth",
+  };
+  stats: Array<any> = [];
+  shareStats;
 
-  constructor(private service: BlogService, private router: Router) {
+  constructor(
+    private service: BlogService,
+    private router: Router,
+    private modalService: BsModalService
+  ) {
     // console.log("ex", this.router.url);
   }
 
@@ -52,6 +66,7 @@ export class BlogsComponent implements OnInit {
       this.service.getHomeBlog().subscribe((_response) => {
         if (_response.body.status !== "Failure") {
           this.data = [];
+          this.activeBlog = _response.body.data.id;
           this.data.push(_response.body.data);
 
           this.archivedBlogs = [].concat(_response.body.blogData);
@@ -64,10 +79,14 @@ export class BlogsComponent implements OnInit {
         }
       });
     } else {
+      this.getActiveBlog();
       this.service.get(type).subscribe((_response) => {
         if (_response.body.status !== "Failure") {
           this.data = [];
           this.data = _response.body.data;
+
+          this.data = this.data.filter((el) => el._id != this.activeBlog);
+
           const data = _response.body.data;
           if (this.currentBlog === "Recent") {
             this.data = this.data.slice(0, 2);
@@ -82,6 +101,13 @@ export class BlogsComponent implements OnInit {
   editBlog(id) {
     // this.router.navigateByUrl("/edit/" + id);
     this.router.navigate(["/blogs/edit-blog/" + id]);
+  }
+
+  getActiveBlog() {
+    this.service.getHomeBlog().subscribe((_response) => {
+      this.activeBlog = _response.body.data.id;
+      console.log("active", this.activeBlog);
+    });
   }
 
   publishBlog(id) {
@@ -103,5 +129,31 @@ export class BlogsComponent implements OnInit {
       console.log("", _response);
       this.getBlogs("saved-blog");
     });
+  }
+
+  openModal(template: TemplateRef<any>, type, row) {
+    if (type == "read") {
+      // this.stats = row;
+    }
+    // this.stats = [
+    //   {
+    //     email: "saloni6283@gmail.com",
+    //     id: "5edcf689f1361df68c1def3c",
+    //     _id: "5edcf689f1361df68c1def3c",
+    //   },
+    //   {
+    //     email: "saloni6283@gmail.com",
+    //     id: "5edcf689f1361df68c1def3c",
+    //     _id: "5edcf689f1361df68c1def3c",
+    //   },
+    // ];
+    // console.log(">>>>", await this.stats);
+    this.stats = row;
+
+    this.modalRef = this.modalService.show(template, this.Modalconfig);
+  }
+
+  decline() {
+    this.modalRef.hide();
   }
 }
