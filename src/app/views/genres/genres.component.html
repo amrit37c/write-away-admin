@@ -143,8 +143,7 @@
       <tbody>
         <tr *ngFor="let media of topicMedia.topicMedia;let i=index">
           <td>{{i+1}}</td>
-          <!-- <td>{{topicMedia.title}}</td> -->
-          <td><img src="http://localhost:3000/images/{{media}}" class="genre-img" /></td>
+          <td><img src="{{url}}/images/{{media}}" class="genre-img" /></td>
           <td>
             <button class="age-grp-delete-btn" (click)="deleteOneImg(topicMedia._id, media)">Delete</button>
           </td>

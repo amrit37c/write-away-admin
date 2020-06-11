@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BlogService } from "src/app/services/blogs/blog.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-blogs",
@@ -9,6 +10,7 @@ import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
   styleUrls: ["./blogs.component.css"],
 })
 export class BlogsComponent implements OnInit {
+  url = environment.url;
   data: Array<any> = [];
   allBlogs = [];
   blogAll: boolean = true;
@@ -28,6 +30,11 @@ export class BlogsComponent implements OnInit {
   };
   stats: Array<any> = [];
   shareStats;
+  allBlogCount = 0;
+  avrReads = 0;
+  avrLikes = 0;
+  avrShare = 0;
+  avgCopiesLink = 0;
 
   constructor(
     private service: BlogService,
@@ -66,6 +73,14 @@ export class BlogsComponent implements OnInit {
       this.service.getHomeBlog().subscribe((_response) => {
         if (_response.body.status !== "Failure") {
           this.data = [];
+
+          this.allBlogCount = _response.body.allBlog;
+          this.avrReads = _response.body.avrReads;
+          this.avrLikes = _response.body.avrLikes;
+          this.avrShare = _response.body.avrShare;
+          this.avgCopiesLink = _response.body.avgCopiesLink;
+          console.log("allBlogCount", this.allBlogCount);
+
           this.activeBlog = _response.body.data.id;
           this.data.push(_response.body.data);
 
@@ -135,21 +150,8 @@ export class BlogsComponent implements OnInit {
     if (type == "read") {
       // this.stats = row;
     }
-    // this.stats = [
-    //   {
-    //     email: "saloni6283@gmail.com",
-    //     id: "5edcf689f1361df68c1def3c",
-    //     _id: "5edcf689f1361df68c1def3c",
-    //   },
-    //   {
-    //     email: "saloni6283@gmail.com",
-    //     id: "5edcf689f1361df68c1def3c",
-    //     _id: "5edcf689f1361df68c1def3c",
-    //   },
-    // ];
-    // console.log(">>>>", await this.stats);
-    this.stats = row;
 
+    this.stats.push(row);
     this.modalRef = this.modalService.show(template, this.Modalconfig);
   }
 

@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: "open-publication", component: PublicationComponent },
   { path: "closed-publication", component: PublicationComponent },
   { path: "rejected-publication", component: PublicationComponent },
+  { path: "saved-publication", component: PublicationComponent },
   { path: "edit-publication/:id", component: FormComponent },
 ];
 

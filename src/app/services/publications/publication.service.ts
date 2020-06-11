@@ -10,6 +10,7 @@ import { map, catchError } from "rxjs/operators";
   providedIn: "root",
 })
 export class PublicationService extends BaseService {
+  // baseUrl = `${environment.baseUrl}${environment.adminApi.publication}`;
   constructor(public http: HttpClient, public router: Router) {
     super(
       `${environment.baseUrl}${environment.adminApi.publication}`,
@@ -27,6 +28,8 @@ export class PublicationService extends BaseService {
       httpParams = new HttpParams().set("publicationStatus", "3");
     } else if (type == "rejected-publication") {
       httpParams = new HttpParams().set("publicationStatus", "4");
+    } else if (type == "saved-publication") {
+      httpParams = new HttpParams().set("publicationStatus", "1");
     } else {
       // httpParams = new HttpParams().set("isPublished", "true");
     }
@@ -42,6 +45,41 @@ export class PublicationService extends BaseService {
           return data;
         }),
 
+        catchError((error: any) => {
+          return this.handleError(error);
+        })
+      );
+  }
+  getPublicationStats(): Observable<any> {
+    return this.http
+      .get<any>(`${this.url}/${environment.adminApi.publicationHome}`, {
+        // headers: this.token(),
+        // params: httpParams,
+        responseType: "json",
+        observe: "response",
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        }),
+
+        catchError((error: any) => {
+          return this.handleError(error);
+        })
+      );
+  }
+
+  /*** put on the server **/
+  putPublication(id, payload): Observable<any> {
+    return this.http
+      .put<any>(`${this.url}/${id}`, payload, {
+        responseType: "json",
+        observe: "response",
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        }),
         catchError((error: any) => {
           return this.handleError(error);
         })

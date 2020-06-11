@@ -2,13 +2,14 @@ import { Component, OnInit, TemplateRef } from "@angular/core";
 import { GenreService } from "src/app/services/genre/genre.service";
 import { Router } from "@angular/router";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-
+import { environment } from "src/environments/environment";
 @Component({
   selector: "app-genres",
   templateUrl: "./genres.component.html",
   styleUrls: ["./genres.component.css"],
 })
 export class GenresComponent implements OnInit {
+  url = environment.url;
   data: Array<any> = [];
   genreAll: boolean = true;
   isAddGenre: boolean = false;

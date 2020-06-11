@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { BlogService } from "src/app/services/blogs/blog.service";
 import { Router, ActivationEnd, ActivatedRoute } from "@angular/router";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-create-form",
@@ -9,6 +10,7 @@ import { Router, ActivationEnd, ActivatedRoute } from "@angular/router";
   styleUrls: ["./form.component.css"],
 })
 export class FormComponent implements OnInit {
+  url = environment.url;
   blogForm: FormGroup;
   editorData = "<p> </p>";
   editAble: boolean = false;

@@ -292,6 +292,7 @@ button[aria-expanded='false']>.right-eco {
   font-weight: 600;
   border-radius: 5px;
   border: 1px solid #219AD3;
+  height: 36px;
 }
 
 .field-size label {
@@ -357,14 +358,13 @@ button[aria-expanded='false']>.right-eco {
 }
 
 .btns-form button {
-  width: 32%;
-  font-size: 10px;
-  padding: 3px;
+  width: 25%;
+  font-size: 12px;
+  padding: 11px;
   border-radius: 4px;
   border: 1px solid;
   margin-top: 9px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  margin-right: 7px
 }
 
 .cancel-btns {

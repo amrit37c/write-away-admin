@@ -21,7 +21,7 @@
         <td> {{ row.createdAt |  date:'dd-MM-yyyy' }}</td>
         <td> {{ row.title }} </td>
         <td [innerHTML]="row.content.substr(0,50)"> </td>
-        <td><img src="http://localhost:3000/images/{{row.media}}" class="media-img" /></td>
+        <td><img src="{{url}}/images/{{row.media}}" class="media-img" /></td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
           <span (click)="openModal(stats,'read', row.readCount)">{{ row?.readCount?.length }}</span></td>
         <td class="s-no-th" *ngIf="currentBlog=='Recent' || blogAll || currentBlog == 'Archieved'">
@@ -73,15 +73,15 @@
       <table class="table admin-blogs-table all-blogs active-blog">
         <tbody>
           <tr>
-            <th colspan="4" class="text-center">All Blogs {{data.length}}</th>
+            <th colspan="4" class="text-center">All Blogs {{allBlogCount}}</th>
 
 
           </tr>
           <tr>
-            <td><span>Avg. Reads </span>{{ '0' }}</td>
-            <td><span>Avg. Likes </span>{{  '0' }}</td>
-            <td><span>Avg. Shares</span>{{'0'}}</td>
-            <td><span>Avg. Copied Links</span> {{ '0'}}</td>
+            <td><span>Avg. Reads </span>{{ avrReads }}</td>
+            <td><span>Avg. Likes </span>{{  avrLikes }}</td>
+            <td><span>Avg. Shares </span>{{ avrShare }}</td>
+            <td><span>Avg. Copied Links</span> {{  avgCopiesLink }}</td>
           </tr>
 
         </tbody>
@@ -108,9 +108,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of stats;let i=index">
+        <tr *ngFor="let row of stats | async">
           <td>
-            <pre>{{row | json }}</pre>{{row.email}}</td>
+            {{row.email}}</td>
         </tr>
       </tbody>
     </table>
