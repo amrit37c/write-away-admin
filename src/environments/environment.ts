@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // baseUrl: "http://127.0.0.1:3000/api/v1/admin/",
-  baseUrl: "http://demo.writeawayy.com:3000/api/v1/admin/",
+  baseUrl: "http://127.0.0.1:3000/api/v1/admin/",
+  // baseUrl: "http://demo.writeawayy.com:3000/api/v1/admin/",
+  url: "http://localhost:3000",
   // url: "http://demo.writeawayy.com:3000",
-  url: "http://demo.writeawayy.com:3000",
   adminApi: {
     blog: "blog",
     publication: "publication",

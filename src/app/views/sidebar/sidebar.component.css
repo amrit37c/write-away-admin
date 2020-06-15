@@ -437,4 +437,8 @@ span {
   font-family: 'Montserrat', sans-serif;
 }
 
+.side-bar-top-item span {
+  cursor: pointer;
+}
+
 /* my css */

@@ -24,6 +24,10 @@ export class GenresComponent implements OnInit {
     class: "modelWidth",
   };
   activeGenre = "";
+  json = null;
+  sort = {
+    createdAt: -1,
+  };
 
   constructor(
     private service: GenreService,
@@ -37,7 +41,7 @@ export class GenresComponent implements OnInit {
   }
 
   getGenres() {
-    this.service.get().subscribe((_response) => {
+    this.service.get(this.json, this.sort).subscribe((_response) => {
       this.data = _response.body.data;
     });
   }

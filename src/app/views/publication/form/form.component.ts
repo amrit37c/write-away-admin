@@ -166,6 +166,7 @@ export class FormComponent implements OnInit {
       return;
     }
     const json = this.publicationForm.value;
+    debugger;
 
     if (type) {
       json.publicationStatus = 2;
