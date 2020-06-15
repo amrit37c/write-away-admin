@@ -1,46 +1,4 @@
 <div class="align-admin-sec  response-form">
-  <!-- <div>
-    <button class="btn btn-primary" (click)="enableAddAg()">Add </button>
-  </div>
-  <div class="row" *ngIf="isAddAge">
-    <div class="col-md-6 text-right">
-      <input type="text" [(ngModel)]="from" placeholder="from" class="form-control" />
-      <input type="text" [(ngModel)]="to" placeholder="to" class="form-control" />
-
-    </div>
-    <div class="col-md-6">
-      <button class="btn-primary" (click)="addGenre()">Add</button>
-    </div>
-  </div>
-  <div class="">
-    <table class="table table-bordered publishing-table table-responsive ">
-      <tbody>
-        <tr>
-          <th>S.No.</th>
-          <th>Age Group</th>
-          <th>Actions</th>
-
-          <th>Logged By:</th>
-        </tr>
-        <tr *ngFor="let row of data;let i=index">
-
-          <td>{{i+1}}</td>
-          <td>{{row.ageRange.join('-')}}</td>
-          <td>
-            <button class="btn-save btn-rounded" (click)="openModal(template, row)">Edit</button>
-            <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
-
-          </td>
-          <td>
-            <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
-          </td>
-
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-
-
   <div class="age-group-main-content">
 
     <div class="add-new-cont add-new-cont pb-2">
@@ -95,9 +53,7 @@
     </div>
 
   </div>
-  <!-- <div class="age-grp-select-cont">
-    <button>Age Group Settings</button>
-  </div> -->
+
 
 </div>
 

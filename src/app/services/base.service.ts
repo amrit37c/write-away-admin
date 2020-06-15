@@ -46,8 +46,8 @@ export class BaseService {
     }
     if (sort) {
       for (const key in sort) {
-        console.log("APPEND IN SORT FILTER");
-        httpParams = httpParams.append("sort", key);
+        let value = sort[key] == -1 ? `-${key}` : `${key}`;
+        httpParams = httpParams.append("sort", value);
       }
     }
     // httpParams.append("sort", "createdAt");

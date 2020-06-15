@@ -39,6 +39,9 @@ export class AgeGroupComponent implements OnInit {
   }
 
   enableAddAge() {
+    this.from = "";
+    this.to = "";
+    this.editable = false;
     this.isAddAge = !this.isAddAge;
   }
 
