@@ -1,44 +1,4 @@
 <div class="align-admin-sec  response-form">
-  <!-- <div class="col-md-6">
-    <button class="btn add-genre text-white mb-3" (click)="enableAddGenre()">
-      <span class="fa fa-plus"></span>
-      Add
-    </button>
-  </div>
-
-  <div class="col-md-6 text-right" *ngIf="isAddGenre">
-    <input type="text" [(ngModel)]="title" class="form-control" />
-    <button class="btn-primary text-white" (click)="addGenre()">Add</button>
-  </div>
-  
-  <div class="">
-    <table class="table table-bordered publishing-table table-responsive ">
-      <tbody>
-        <tr>
-          <th>S.No.</th>
-          <th>Genres</th>
-          <th>Actions</th>
-          <th>Topic Media's</th>
-          <th>Logged By:</th>
-        </tr>
-        <tr *ngFor="let row of data;let i=index">
-
-          <td>{{i+1}}</td>
-          <td>{{row.title}}</td>
-          <td>
-            <button class="btn-save btn-rounded" (click)="openModal(template, row)">Edit</button>
-            <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
-          </td>
-          <td>
-            <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
-          </td>
-          <td>{{row.brief}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-
-
   <div class="age-group-main-content">
 
     <div class="add-new-cont add-new-cont pb-2">
@@ -52,7 +12,7 @@
           <input type="text" [(ngModel)]="title" placeholder="Enter Title" class="form-control age-fields" />
         </div>
         <button class="popup-add-btn"
-          (click)="editable ? updateAge() : addGenre()">{{editable ? 'Update' : 'Add'}}</button>
+          (click)="editable ? updateGenre() : addGenre()">{{editable ? 'Update' : 'Add'}}</button>
       </div>
     </div>
 
@@ -62,7 +22,7 @@
         <thead>
           <tr>
             <th class="s-no-th">S.No.</th>
-            <th class="age-groups-th">Age-Groups</th>
+            <th class="age-groups-th">Genres</th>
             <th class="actions-th">Actions</th>
             <th class="actions-th">Topic Media's</th>
             <th class="logged-bt-th">Logged by:</th>
@@ -75,11 +35,12 @@
             <td>{{i+1}}</td>
             <td>{{row.title}}</td>
             <td>
-              <button class="btn-save btn-rounded" (click)="openModal(template, row)">Edit</button>
+              <button class="btn-save btn-rounded" (click)="enableAddGenre('edit', row)">Edit</button>
               <button class="btn-delete btn-rounded" (click)="deleteGenre(row._id)">Delete</button>
             </td>
             <td>
-              <span (click)="openModal(template, row.topicMedia)">{{row.topicMedia && row.topicMedia.length}}</span>
+              <span (click)="openModal(template, row)"
+                class="topic-media">{{row.topicMedia && row.topicMedia.length}}</span>
             </td>
             <td>{{row.brief}}</td>
           </tr>

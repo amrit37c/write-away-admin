@@ -597,4 +597,9 @@ button:focus {
   outline: none;
 }
 
+.topic-media {
+  cursor: pointer;
+  color: blue;
+}
+
 /* my css  */

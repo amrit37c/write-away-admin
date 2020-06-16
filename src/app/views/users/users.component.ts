@@ -46,7 +46,6 @@ export class UsersComponent implements OnInit {
 
     const update = {};
     if (type == "block") {
-      debugger;
       if (row.status === "1") {
         update["status"] = row.status === "1" ? "0" : "1";
         message = "Do you want to block this user";

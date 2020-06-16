@@ -28,6 +28,8 @@ export class GenresComponent implements OnInit {
   sort = {
     createdAt: -1,
   };
+  editable: boolean;
+  id;
 
   constructor(
     private service: GenreService,
@@ -50,7 +52,13 @@ export class GenresComponent implements OnInit {
     this.router.navigateByUrl("/publications/" + url);
   }
 
-  enableAddGenre() {
+  enableAddGenre(op?, row?) {
+    if (op) {
+      console.log("called");
+      this.editable = true;
+      this.title = row.title;
+      this.id = row.id;
+    }
     this.isAddGenre = !this.isAddGenre;
   }
 
@@ -62,6 +70,17 @@ export class GenresComponent implements OnInit {
       .subscribe((_response) => {
         console.log(_response);
         this.title = "";
+        this.getGenres();
+      });
+  }
+  updateGenre() {
+    this.service
+      .put(this.id, {
+        title: this.title,
+      })
+      .subscribe((_response) => {
+        this.title = "";
+        this.id = "";
         this.getGenres();
       });
   }

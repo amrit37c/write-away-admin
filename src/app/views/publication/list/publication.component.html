@@ -304,7 +304,7 @@
           <td>{{row.createdAt |  date:'dd-MM-yyyy'}}</td>
           <td><img src="{{url}}/images/{{row.mediaCover}}" style="height: 200px;width: 200px;" /></td>
           <td>{{row.title}}</td>
-          <td>{{row.brief}}</td>
+          <td>{{row.brief.substr(0,100)}}</td>
           <td>
             <span *ngFor="let genre of row.genres">
               {{genre.title}},

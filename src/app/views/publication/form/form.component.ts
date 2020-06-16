@@ -87,6 +87,10 @@ export class FormComponent implements OnInit {
   openPub: number = 0;
   savedPub: number = 0;
   closedPub: number = 0;
+  json = null;
+  sort = {
+    title: 1,
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -166,7 +170,6 @@ export class FormComponent implements OnInit {
       return;
     }
     const json = this.publicationForm.value;
-    debugger;
 
     if (type) {
       json.publicationStatus = 2;
@@ -181,7 +184,7 @@ export class FormComponent implements OnInit {
 
     const formdata = new FormData();
     const data = this.getFormFields(json, formdata);
-    debugger;
+
     this.publicationService.post(data).subscribe((_response) => {
       this.publicationForm.reset();
       this.router.navigateByUrl("/publications");
@@ -224,7 +227,7 @@ export class FormComponent implements OnInit {
   }
 
   getGenres() {
-    this.genreService.get().subscribe((_response) => {
+    this.genreService.get(this.json, this.sort).subscribe((_response) => {
       this.genres = _response.body.data.map((el) => {
         return {
           value: el._id,

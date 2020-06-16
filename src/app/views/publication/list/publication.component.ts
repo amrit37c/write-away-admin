@@ -151,7 +151,7 @@ export class PublicationComponent implements OnInit {
 
   updatePublication(id, type) {
     const status = { publicationStatus: type };
-    debugger;
+
     this.service.put(id, status).subscribe((_response) => {
       this.router.navigate(["/publications"]);
     });
